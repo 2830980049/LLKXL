@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>需求计划汇总</title>
+    <!-- 告诉浏览器响应屏幕宽度 -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link href="../../res/css/bootsrap.min.css" rel="stylesheet">
+    <!-- 象形异体字 -->
+    <link href="../../res/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 主题风格 -->
+    <link href="../../res/css/AdminLLKXL.min.css" rel="stylesheet">
+    <!-- 皮肤 -->
+    <link href="../../res/css/_all-skins.min.css" rel="stylesheet">
+    <!--谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"
+          rel="stylesheet">
+    <!--导入vue.js有网的时候推荐-->
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--没网的时候-->
+    <!--script src="../../js/vue.js" type="text/javascript" charset="UTF-8"></script-->
+    <style type="text/css">
+        #mian-components {
+            text-align: center;
+
+        }
+
+        .btn-default {
+            margin-top: 10px;
+
+            margin-right: 35px;
+        }
+
+        .table {
+            text-align: center;
+        }
+
+        .table-mess {
+            width: 300px;
+            text-align: center;
+        }
+
+        .system-mess {
+            width: 600px;
+            text-align: center;
+        }
+
+        .main-footer {
+            margin-bottom: 0px;
+        }
+    </style>
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+        <!-- Logo -->
+        <a class="logo" href="#">
+            <!-- 迷你标志为侧栏迷你50x50像素 -->
+            <span class="logo-mini"><b>L</b>B</span>
+            <!-- 常规状态和移动设备的徽标 -->
+            <span class="logo-lg">LLKXL智能制造系统</span>
+        </a>
+        <!-- 标题导航栏:样式可以在Header .less中找到 -->
+        <nav class="navbar navbar-static-top">
+            <!-- 侧边栏切换按钮-->
+            <a class="sidebar-toggle" data-toggle="push-menu" href="#" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- 用户帐号:风格可以在dropdown.less中找到 -->
+                    <li class="dropdown user user-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="hidden-xs">琳琳开心力</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <br>
+                                <br>
+                                <p>
+                                    琳琳开心力 - web开发人员
+                                    <small>2019.11.1</small>
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- 左列。包含徽标和边栏 -->
+    <aside class="main-sidebar">
+        <!-- 侧栏:style可以在sidebar.less中找到 -->
+        <section class="sidebar">
+            <!-- 侧栏菜单::style可以在sidebar.less中找到-->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">主要导航</li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-link"></i> <span>需求计划</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li>
+                            <a href="yearplantest.html">年度需求计划</a>
+                        </li>
+                        <li>
+                            <a href="urgentplantest.html">紧急需求计划</a>
+                        </li>
+                        <li>
+                            <a href="monthplantest.html">月度需求计划</a>
+                        </li>
+                        <li>
+                            <a href="demandplanningenquiry.html">需求计划查询/修改</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </section>
+        <!-- /.侧边栏描述 -->
+    </aside>
+    <!-- 内容包装器。包含页面内容 -->
+    <div class="content-wrapper ">
+        <div class="col-md-2" style="width: 150px;color: #0a568c;display: inline-block;">
+            <ul class="sidebar" data-widget="tree">
+                <li class="header">年份选择</li>
+                <li class="treeview">
+                    <a href="#">
+                        <span style="color: #0a568c;">2018</span>
+                        <span class="pull-right-container">
+            </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li>
+                            <a href="#" style="color: #0a568c;">3月</a>
+                        </li>
+                        <li>
+                            <a href="#" style="color: #0a568c;">4月</a>
+                        </li>
+                        <li>
+                            <a href="#" style="color: #0a568c;">5月</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <span style="color: #0a568c;">2019</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li>
+                            <a href="#" style="color: #0a568c;">3月</a>
+                        </li>
+                        <li>
+                            <a href="#" style="color: #0a568c;">4月</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- 年份选择end -->
+        <!-- 物资需求表内容-->
+        <div class="col-md-10 col-md-offset-1" style="text-align: center;display: inline-block;margin-left: 0;">
+            <!-- 标题 -->
+            <section class="content-header">
+                <h2 align="center">物资需求汇总表</h2>
+
+            </section>
+            <table class="table" id="tab_1">
+                <tr>
+                    <td>行号</td>
+                    <td>物料分类编码</td>
+                    <td>物料分类名称</td>
+                    <td>物料编码</td>
+                    <td>物料名称</td>
+                    <td>规格</td>
+                    <td>型号</td>
+                    <td>单位</td>
+                    <td>需求数量</td>
+                    <td>需求月份</td>
+                    <td>需求日期</td>
+                    <td>货源是否确定</td>
+                    <td>期望供应商</td>
+                    <td>固定供应商</td>
+                    <td>所属需求计划编码</td>
+                    <td>所属需求部门</td>
+                </tr>
+                <tr>
+                    <!-- 序号-->
+                    <td>
+                        {{num}}
+                    </td>
+                    <td>
+                        <!--物料分类编码-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="thingClassifyCode"/>
+                    </td>
+                    <td>
+                        <!--物料分类名称-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="thingClassifyName"/>
+                    </td>
+
+                    <td>
+                        <!--物料编码-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="thingCode"/>
+                    </td>
+                    <td>
+                        <!--物料名称-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="thingName"/>
+                    </td>
+                    <td>
+                        <!--规格-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="size"/>
+                    </td>
+                    <td>
+                        <!--型号-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="type"/>
+                    </td>
+                    <td>
+                        <!--单位-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="unit"/>
+                    </td>
+                    <td>
+                        <!--需求数量-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="demandNum"/>
+                    </td>
+                    <td>
+                        <!--需求月份-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="demandMonth"/>
+                    </td>
+                    <td>
+                        <!--需求日期-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="demandDate"/>
+                    </td>
+                    <td>
+                        <!--货源是否确定-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="resourceIsTrue"/>
+                    </td>
+                    <td>
+                        <!--期望供应商-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="ecpectProvider"/>
+                    </td>
+                    <td>
+                        <!--固定供应商-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="hardProvider"/>
+                    </td>
+                    <td>
+                        <!--需求所属需求部门-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="demandSection"/>
+                    </td>
+                    <td>
+                        <!--需求所属需求部门-->
+                        <input name="" placeholder="不可编辑" readonly="readonly" style="width:69px;text-align:center;"
+                               type="text"
+                               v-model="demandSection"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!-- 物资需求表内容end-->
+        <!-- 主要内容结束 -->
+
+    </div>
+    <!-- /.尾部内容 -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 3.0.0
+        </div>
+        <strong>CRAETE TO 2019.11.1AdminLLKXL.</strong> 保留所有权
+    </footer>
+
+    <script type="text/javascript">
+        var table1 = new Vue({
+            el: "#tab_1",
+            data: {
+                num: 1,//序号
+                thingClassifyCode: "",//物料分类编码
+                thingClassifyName: "",//物料分类名称
+                thingCode: "",//物料编码
+                thingName: "",//物料名称
+                size: "",//规格
+                type: "",//型号
+                unit: "",//单位
+                demandNum: "",//需求数量
+                demandMonth: "",//需求月份
+                demandDate: "",//需求日期
+                resourceIsTrue: "",//货源是否确定
+                ecpectProvider: "",//期望供应商
+                hardProvider: "",//固定供应商
+                demandPlanCode: "",//所属需求计划编码
+                demandSection: "",//所属需求部门
+            }
+        })
+    </script>
+    <!-- ./包装器 -->
+    <!-- jQuery 3 -->
+    <script src="../../res/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../res/js/bootstrap.min.js"></script>
+    <!-- 侧栏打开/关闭代码 -->
+    <script src="../../res/js/adminllkxl.min.js"></script>
+</div>
+</body>
+
+</html>

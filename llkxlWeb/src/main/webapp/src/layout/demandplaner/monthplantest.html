@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://java.sun.com/jsf/composite">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>月度计划</title>
+    <!-- 告诉浏览器响应屏幕宽度 -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link href="../../res/css/bootsrap.min.css" rel="stylesheet">
+    <!-- 象形异体字 -->
+    <link href="../../res/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 主题风格 -->
+    <link href="../../res/css/AdminLLKXL.min.css" rel="stylesheet">
+    <!-- 皮肤 -->
+    <link href="../../res/css/_all-skins.min.css" rel="stylesheet">
+    <!--谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"
+          rel="stylesheet">
+    <!--导入vue.js有网的时候推荐-->
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--没网的时候-->
+    <!--script src="../../js/vue.js" type="text/javascript" charset="UTF-8"></script-->
+    <style type="text/css">
+        #mian-components {
+            text-align: center;
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            height: 1000px;
+            overflow-x: auto;
+        }
+
+        .btn-default {
+            margin-top: 10px;
+
+            margin-right: 35px;
+        }
+
+        .table {
+            text-align: center;
+        }
+
+        .table-mess {
+            width: 300px;
+            text-align: center;
+        }
+
+        .system-mess {
+            width: 600px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+        <!-- Logo -->
+        <a class="logo" href="#">
+            <!-- 迷你标志为侧栏迷你50x50像素 -->
+            <span class="logo-mini"><b>L</b>B</span>
+            <!-- 常规状态和移动设备的徽标 -->
+            <span class="logo-lg">LLKXL智能制造系统</span>
+        </a>
+        <!-- 标题导航栏:样式可以在Header .less中找到 -->
+        <nav class="navbar navbar-static-top">
+            <!-- 侧边栏切换按钮-->
+            <a class="sidebar-toggle" data-toggle="push-menu" href="#" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- 用户帐号:风格可以在dropdown.less中找到 -->
+                    <li class="dropdown user user-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="hidden-xs">琳琳开心力</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <br>
+                                <br>
+                                <p>
+                                    琳琳开心力 - web开发人员
+                                    <small>2019.11.1</small>
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- 左列。包含徽标和边栏 -->
+    <aside class="main-sidebar">
+        <!-- 侧栏:style可以在sidebar.less中找到 -->
+        <section class="sidebar">
+            <!-- 侧栏菜单::style可以在sidebar.less中找到-->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">主要导航</li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-link"></i> <span>需求计划</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li>
+                            <a href="yearplantest.html">年度需求计划</a>
+                        </li>
+                        <li>
+                            <a href="urgentplantest.html">紧急需求计划</a>
+                        </li>
+                        <li>
+                            <a href="demandplanningenquiry.html">需求计划查询/修改</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <!-- /.侧边栏描述 -->
+    </aside>
+    <!-- 内容包装器。包含页面内容 -->
+    <div class="content-wrapper">
+
+        <!-- 内容页眉(页眉） -->
+        <section class="content-header">
+            <h2 align="center">月度计划</h2>
+        </section>
+        <!-- 主要内容 -->
+        <section class="content">
+            <!--年度计划界面-->
+            <div id="mian-components">
+                <!--按钮-->
+                <div id="button-components">
+                    <div aria-label="..." class="btn-group" role="group">
+                        <button @click="save" class="btn btn-default" type="button">保存</button>
+                        <button class="btn btn-default" type="button">复制</button>
+                        <button class="btn btn-default" type="button">提交</button>
+                        <button class="btn btn-default"
+                                onclick="window.location.href='requirementsPlanPrintPreviewAndExportPage.html?pname=月度'"
+                                type="button">
+                            打印
+                        </button>
+                        <button class="btn btn-default" type="button">导出</button>
+                        <button class="btn btn-default" type="button">附件</button>
+                        <button class="btn btn-default" type="button">提醒</button>
+                        <button class="btn btn-default" type="button">删除</button>
+                        <button class="btn btn-default" type="button">关闭/退出</button>
+                    </div>
+                </div>
+                <!--/按钮-->
+                <hr/>
+                <!--信息输入界面-->
+                <div class="input-components" id="input-components">
+
+                    <div class="row">
+								<span>需求计划类型<input id="" name="" readonly="readonly"
+                                                   style="width: 65px;text-align:center;background:#0073B7;"
+                                                   type="text"
+                                                   v-model="demandPlan"/></span>
+                        <span>需求计划编码<input id="" name="" readonly="readonly"
+                                           style="width:65px;text-align:center;background:#0073B7;"
+                                           type="text"
+                                           v-model="demandPlanCode"/></span>
+                        <span>需求计划名称<input id="" name="" style="width:65px;text-align:center;" type="text"
+                                           v-model="demandPlanName"/></span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备注<input id="" name=""
+                                                                                                   style="width:65px;text-align:center;"
+                                                                                                   type="text"
+                                                                                                   v-model="demandPlanNote"
+                                                                                                   value=""/></span>
+                    </div>
+                    <div class="row" style="margin: 30px;">
+								<span v-bind:style="obj">
+									需求计划月份
+									<select v-model="demandPlanningMonth">
+										<option :value="send.text" v-for="send in sendList">{{send.text}}</option>
+									</select>
+								</span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            需求部门
+                            <select style="width: 65px;" v-model="sectorOfDemand">
+										<option :value="send.text"
+                                                v-for="send in sectorOfDemandList">{{send.text}}</option>
+									</select>
+                        </span>
+                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;需求人员<input id="" name=""
+                                                                                                     style="width:65px;text-align:center;"
+                                                                                                     type="text"
+                                                                                                     v-model="departmentOfPeaple"/></span>
+                        <span>需求计划状态<input id="" name="" readonly="readonly"
+                                           style="width:65px;text-align:center;background:#0073B7;"
+                                           type="text"
+                                           v-model="demandPlanState"/></span>
+                        <span>审批状态<input id="" name="" readonly="readonly"
+                                         style="width:65px;text-align:center;background:#0073B7;"
+                                         type="text"
+                                         v-model="examinationState"/></span>
+                    </div>
+                    <p><input id="" name="" type="checkbox" v-model="plannedBudget" value="true"/>是否预算内计划</p>
+
+                </div>
+                <!--/信息输入界面-->
+                <!--标签页-->
+                <div class="labelPage">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a @click="isBasicInformation" class="tab-default" data-toggle="tab" href="#tab_1">基本信息</a>
+                        </li>
+                        <li>
+                            <a @click="isProcessnIformation" data-toggle="tab" href="#tab_2">流程信息</a>
+                        </li>
+                        <li>
+                            <a @click="isSystemInformation" data-toggle="tab" href="#tab_3">系统信息</a>
+                        </li>
+                    </ul>
+                    <!-- end 导航条 -->
+                    <!-- begin 导航条下方的内容 -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <div>
+                                <table class="table">
+                                    <tr>
+                                        <td>行号</td>
+                                        <td>物料分类编码</td>
+                                        <td>物料分类名称</td>
+                                        <td>物料编码</td>
+                                        <td>物料名称</td>
+                                        <td>规格</td>
+                                        <td>型号</td>
+                                        <td>单位</td>
+                                        <td>需求数量</td>
+                                        <td>需求月份</td>
+                                        <td>需求日期</td>
+                                        <td>货源是否确定</td>
+                                        <td>期望供应商</td>
+                                        <td>固定供应商</td>
+                                        <td>备注</td>
+                                        <td>物料追踪码</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td><input id="" name="" readonly="readonly"
+                                                   style="width:65px;text-align:center;background:#0073B7;"
+                                                   type="text"
+                                                   v-model="materialClassificationCode"/></td>
+                                        <td><input id="" name="" readonly="readonly"
+                                                   style="width:65px;text-align:center;background:#0073B7;"
+                                                   type="text"
+                                                   v-model="materialClassificationName"/></td>
+                                        <td>
+                                            <select>
+
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input id="" name="" readonly="readonly"
+                                                   style="width:65px;text-align:center;background:#0073B7;"
+                                                   type="text"
+                                                   v-model="materialName"/>
+                                        </td>
+                                        <td>
+                                            <input id="" name="" style="width:65px;text-align:center;" type="text"
+                                                   v-model="specifications"/>
+                                        </td>
+                                        <td>
+                                            <input id="" name="" style="width:65px;text-align:center;" type="text"
+                                                   v-model="model"/>
+                                        </td>
+                                        <td>
+                                            <select v-model="unit">
+                                                <option v-for="i in unitList">{{i.text}}</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input id="" name="" style="width:65px;text-align:center;" type="number"
+                                                   v-model="quantityDemanded"/>
+                                        </td>
+                                        <td>
+                                            <select v-model="demandMonth">
+                                                <option v-for="i in demandPlanList">{{i.text}}</option>
+                                            </select>
+                                        </td>
+                                        <td><input id="" name="" style="width: 130px;" type="date"
+                                                   v-model="demandData"/></td>
+                                        <td>
+                                            <select v-model="isGoodsConfirmed">
+                                                <option v-for="i in isGoodsConfirmedList">{{i.text}}</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select v-model="expectedSupplier">
+                                                <option v-for="i in expectedSupplierList">{{i.text}}</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select v-model="fixedSupplier">
+                                                <option v-for="i in fixedSupplierList">{{i.text}}</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input id="" name="" style="width:65px;text-align:center;" type="text"
+                                                   v-model="note"/>
+                                        </td>
+                                        <td>
+                                            <input id="" name="" readonly="readonly"
+                                                   style="width:65px;text-align:center;background:#0073B7;"
+                                                   type="text"
+                                                   v-model="materialTrackingCode"/>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab_2">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr class="active">
+                                        <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                        <td>审批人</td>
+                                        <td>审批时间</td>
+                                        <td>审批意见</td>
+                                        <td>说明</td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td>1</td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td>2</td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td>3</td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                        <td><input readonly type="text" value=""/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="tab_3">
+                            <div class="system-mess" style="text-align: left">
+										<span>编制者&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="" name="" readonly="readonly"
+                                                                                      style="text-align:center;background:#0073B7;"
+                                                                                      type="text"
+                                                                                      v-model="editPeo"/></span>
+                                <span>编制时间<input id="" name="" readonly="readonly"
+                                                 style="text-align:center;background:#0073B7;"
+                                                 type="text"
+                                                 v-model="editTime"/></span>
+                                <br><br>
+                                <span>修改者&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="" name="" readonly="readonly"
+                                                                              style="text-align:center;background:#0073B7;"
+                                                                              type="text"
+                                                                              v-model="changePeo"/></span>
+                                <span>修改时间<input id="" name="" readonly="readonly"
+                                                 style="text-align:center;background:#0073B7;"
+                                                 type="text"
+                                                 v-model="changeTime"/></span>
+                                <br> <br>
+                                <span>修改原因<input id="" name="" readonly="readonly"
+                                                 style="margin-left: 0px; background:#0073B7;"
+                                                 type="text"
+                                                 v-model="changeCause"/></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /导航条下方的内容 -->
+                <!--/标签页-->
+                <!--/年度计划界面-->
+            </div>
+        </section>
+    </div>
+    <!-- /.主要内容 -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 3.0.0
+        </div>
+        <strong>CRAETE TO 2019.11.1AdminLLKXL.</strong> 保留所有权
+    </footer>
+    <script type="text/javascript">
+        var mianComponent = new Vue({
+            el: '#mian-components',
+            data: {
+                demandPlan: '月度计划', //需求计划类型
+                demandPlanCode: '001', //需求计划编码
+                demandPlanName: ' ', //需求计划名称
+                demandPlanNote: '', //备注
+                sectorOfDemand: '', //需求部门
+                departmentOfPeaple: '', //需求人员
+                demandPlanState: '', //需求状态
+                examinationState: '', //审批状态
+                demandPlanningMonth: '', //需求计划月份
+                plannedBudget: false, //是否预算内计划
+                materialClassificationCode: '', //物料分类编码
+                materialClassificationName: '', //物料分类名称
+                materialName: '', //物料名称
+                specifications: '', //规格
+                model: '', //型号
+                unit: '', //单位
+                quantityDemanded: '', //需求数量
+                demandMonth: '', //需求月份
+                demandData: '', //需求日期
+                isGoodsConfirmed: '', //货源是否确定
+                expectedSupplier: '', //期望供应商
+                fixedSupplier: '', //固定供应商
+                note: '', //备注
+                materialTrackingCode: '', //物料追踪码
+                editPeo: '',//编辑人
+                editTime: '',//编辑时间
+                changePeo: '',//修改人
+                changeTime: '',//修改时间
+                changeCause: '',//修改原因
+                obj: {
+                    display: 'none'
+                },
+                sectorOfDemandList: [],
+                sendList: [{
+                    text: '1月'
+                },
+                    {
+                        text: '2月'
+                    },
+                    {
+                        text: '3月'
+                    },
+                    {
+                        text: '4月'
+                    },
+                    {
+                        text: '5月'
+                    },
+                    {
+                        text: '6月'
+                    },
+                    {
+                        text: '7月'
+                    },
+                    {
+                        text: '8月'
+                    },
+                    {
+                        text: '9月'
+                    },
+                    {
+                        text: '10月'
+                    },
+                    {
+                        text: '11月'
+                    },
+                    {
+                        text: '12月'
+                    }
+                ],
+                unitList: [],
+                demandPlanList: [{
+                    text: '201901'
+                },
+                    {
+                        text: '201902'
+                    },
+                    {
+                        text: '201903'
+                    },
+                    {
+                        text: '201904'
+                    },
+                    {
+                        text: '201905'
+                    },
+                    {
+                        text: '201906'
+                    },
+                    {
+                        text: '201907'
+                    },
+                    {
+                        text: '201908'
+                    },
+                    {
+                        text: '201909'
+                    },
+                    {
+                        text: '201910'
+                    },
+                    {
+                        text: '201911'
+                    },
+                    {
+                        text: '201912'
+                    }
+                ],
+                isGoodsConfirmedList: [],
+                expectedSupplierList: [],
+                fixedSupplierList: [],
+            },
+            methods: {
+                isProcessnIformation: function () {
+                    this.obj.display = 'inline';
+                },
+                isBasicInformation: function () {
+                    this.obj.display = 'none';
+                },
+                isSystemInformation: function () {
+                    this.obj.display = 'inline';
+                },
+                save: function () {
+                    if (this.demandPlanName == " ") {
+                        alert("null")
+                    }
+
+                }
+            }
+
+        });
+    </script>
+    <!-- ./包装器 -->
+    <!-- jQuery 3 -->
+    <script src="../../res/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../res/js/bootstrap.min.js"></script>
+    <!-- 侧栏打开/关闭代码 -->
+    <script src="../../res/js/adminllkxl.min.js"></script>
+</div>
+</body>
+</html>

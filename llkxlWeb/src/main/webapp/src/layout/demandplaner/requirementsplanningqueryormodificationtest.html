@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>需求计划查詢/修改</title>
+    <!-- 告诉浏览器响应屏幕宽度 -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link href="../../res/css/bootsrap.min.css" rel="stylesheet">
+    <!-- 象形异体字 -->
+    <link href="../../res/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 主题风格 -->
+    <link href="../../res/css/AdminLLKXL.min.css" rel="stylesheet">
+    <!-- 皮肤 -->
+    <link href="../../res/css/_all-skins.min.css" rel="stylesheet">
+    <!--谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"
+          rel="stylesheet">
+    <!--导入vue.js有网的时候推荐-->
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--没网的时候-->
+    <!--script src="../../js/vue.js" type="text/javascript" charset="UTF-8"></script-->
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a class="logo" href="#">
+            <!-- 迷你标志为侧栏迷你50x50像素 -->
+            <span class="logo-mini"><b>L</b>B</span>
+            <!-- 常规状态和移动设备的徽标 -->
+            <span class="logo-lg">LLKXL智能制造系统</span>
+        </a>
+        <!-- 标题导航栏:样式可以在Header .less中找到 -->
+        <nav class="navbar navbar-static-top">
+            <!-- 侧边栏切换按钮-->
+            <a class="sidebar-toggle" data-toggle="push-menu" href="#" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- 用户帐号:风格可以在dropdown.less中找到 -->
+                    <li class="dropdown user user-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="hidden-xs">琳琳开心力</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <br>
+                                <br>
+                                <p>
+                                    琳琳开心力 - web开发人员
+                                    <small>2019.11.1</small>
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- 左列。包含徽标和边栏 -->
+    <aside class="main-sidebar">
+        <!-- 侧栏:style可以在sidebar.less中找到 -->
+        <section class="sidebar">
+            <!-- 侧栏菜单::style可以在sidebar.less中找到-->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">主要导航</li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-link"></i> <span>需求计划</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li>
+                            <a href="yearplantest.html">年度需求计划</a>
+                        </li>
+                        <li>
+                            <a href="urgentplantest.html">紧急需求计划</a>
+                        </li>
+                        <li>
+                            <a href="monthplantest.html">月度需求计划</a>
+                        </li>
+                        <li>
+                            <a href="demandplanningenquiry.html">需求计划查询/修改</a>
+                        </li>
+                        <li>
+                            <a href="monthplantest.html">月度需求计划</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <!-- /.侧边栏描述 -->
+    </aside>
+
+    <!-- 内容包装器。包含页面内容 -->
+    <div class="content-wrapper">
+        <!-- 内容页眉(页眉） -->
+        <section class="content-header">
+        </section>
+
+        <!-- 主要内容 -->
+        <section class="content">
+            <!--需求计划查询/修改-->
+            <div id="mian-components" style="text-align: center;">
+                <div style="margin: 0 auto;">
+                    <div>
+                        <div>
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">需求计划编号</div>
+                                        <input class="form-control" id="exampleInputAmount" placeholder="填写需求计划编号"
+                                               type="text" v-model="demandPlanNumber">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">需求计划类型</div>
+                                    <select class="form-control" id="exampleInputAmount" v-model="demandPlanType">
+                                        <option disabled selected style="display: none;" value="">请选择</option>
+                                        <option v-for="i of demandPlanTypeList">{{i.text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">需求部门</div>
+                                    <select class="form-control" id="exampleInputAmount" v-model="sectorOfDemand">
+                                        <option disabled selected style="display: none;" value="">请选择</option>
+                                        <option v-for="i of sectorOfDemandList">{{i.text}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="row">
+                        <div>
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">计划年度</div>
+                                        <select class="form-control" id="exampleInputAmount" v-model="planAnnual">
+                                            <option disabled selected style="display: none;" value="">请选择</option>
+                                            <option v-for="i of planAnnualList">{{i.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">计划月份</div>
+                                        <select class="form-control" id="exampleInputAmount" v-model="planMonth">
+                                            <option disabled selected style="display: none;" value="">请选择</option>
+                                            <option v-for="i of planMonthList">{{i.text}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.25rem;">
+                        <button class="btn btn" style="margin-right: 30px;" type="button">确定</button>
+                        <button class="btn btn" type="button">取消</button>
+                    </div>
+
+                </div>
+                <!--/需求计划查询/修改-->
+            </div>
+        </section>
+        <!-- /.主要内容 -->
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 3.0.0
+        </div>
+        <strong>CRAETE TO 2019.11.1AdminLLKXL.</strong> 保留所有权
+    </footer>
+    <script type="text/javascript">
+        var mianComponents = new Vue({
+            el: '#mian-components',
+            data: {
+                demandPlanNumber: '', //需求计划编号
+                demandPlanType: '', //需求计划类型
+                demandPlanTypeList: [{
+                    text: '年度计划'
+                },
+                    {
+                        text: '月度计划'
+                    },
+                    {
+                        text: '紧急计划'
+                    }
+                ],
+                sectorOfDemand: '', //需求部门
+                sectorOfDemandList: [],
+                planAnnual: '', //计划年度
+                planAnnualList: [],
+                planMonth: '', //计划月份
+                planMonthList: [],
+
+            }
+        });
+    </script>
+    <!-- ./包装器 -->
+    <!-- jQuery 3 -->
+    <script src="../../res/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../res/js/bootstrap.min.js"></script>
+    <!-- 侧栏打开/关闭代码 -->
+    <script src="../../res/js/adminllkxl.min.js"></script>
+</div>
+</body>
+
+</html>

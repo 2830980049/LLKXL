@@ -1,0 +1,2310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.gues.mapper.base.TbPlanBaseMapper">
+
+
+    <insert id="insertTbPlan" useGeneratedKeys="true" keyProperty="num">
+        INSERT INTO `tb_plan`
+        (
+        <trim suffixOverrides=",">
+            <if test="num!=null">
+                `num`,
+            </if>
+            <if test="planName!=null">
+                `plan_name`,
+            </if>
+            <if test="planType!=null">
+                `plan_type`,
+            </if>
+            <if test="mrCfNum!=null">
+                `mr_cf_num`,
+            </if>
+            <if test="mrNum!=null">
+                `mr_num`,
+            </if>
+            <if test="needNum!=null">
+                `need_num`,
+            </if>
+            <if test="writeTime!=null">
+                `write_time`,
+            </if>
+            <if test="needUnit!=null">
+                `need_unit`,
+            </if>
+            <if test="avStatus!=null">
+                `av_status`,
+            </if>
+            <if test="needMonth!=null">
+                `need_month`,
+            </if>
+            <if test="ynSupply!=null">
+                `yn_supply`,
+            </if>
+            <if test="wtSupply!=null">
+                `wt_supply`,
+            </if>
+            <if test="ftSupply!=null">
+                `ft_supply`,
+            </if>
+            <if test="mrTrace!=null">
+                `mr_trace`,
+            </if>
+            <if test="remark!=null">
+                `remark`,
+            </if>
+            <if test="needMan!=null">
+                `need_man`,
+            </if>
+            <if test="needTime!=null">
+                `need_time`,
+            </if>
+            <if test="needAvMan!=null">
+                `need_av_man`,
+            </if>
+            <if test="needAvTime!=null">
+                `need_av_time`,
+            </if>
+            <if test="needAvIdea!=null">
+                `need_av_idea`,
+            </if>
+            <if test="needExplain!=null">
+                `need_explain`,
+            </if>
+            <if test="buyMan!=null">
+                `buy_man`,
+            </if>
+            <if test="buyTime!=null">
+                `buy_time`,
+            </if>
+            <if test="buyAvMan!=null">
+                `buy_av_man`,
+            </if>
+            <if test="buyAvTime!=null">
+                `buy_av_time`,
+            </if>
+            <if test="buyAvIdea!=null">
+                `buy_av_idea`,
+            </if>
+            <if test="buyExplain!=null">
+                `buy_explain`,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+            <if test="num!=null">
+                #{num},
+            </if>
+            <if test="planName!=null">
+                #{planName},
+            </if>
+            <if test="planType!=null">
+                #{planType},
+            </if>
+            <if test="mrCfNum!=null">
+                #{mrCfNum},
+            </if>
+            <if test="mrNum!=null">
+                #{mrNum},
+            </if>
+            <if test="needNum!=null">
+                #{needNum},
+            </if>
+            <if test="writeTime!=null">
+                #{writeTime},
+            </if>
+            <if test="needUnit!=null">
+                #{needUnit},
+            </if>
+            <if test="avStatus!=null">
+                #{avStatus},
+            </if>
+            <if test="needMonth!=null">
+                #{needMonth},
+            </if>
+            <if test="ynSupply!=null">
+                #{ynSupply},
+            </if>
+            <if test="wtSupply!=null">
+                #{wtSupply},
+            </if>
+            <if test="ftSupply!=null">
+                #{ftSupply},
+            </if>
+            <if test="mrTrace!=null">
+                #{mrTrace},
+            </if>
+            <if test="remark!=null">
+                #{remark},
+            </if>
+            <if test="needMan!=null">
+                #{needMan},
+            </if>
+            <if test="needTime!=null">
+                #{needTime},
+            </if>
+            <if test="needAvMan!=null">
+                #{needAvMan},
+            </if>
+            <if test="needAvTime!=null">
+                #{needAvTime},
+            </if>
+            <if test="needAvIdea!=null">
+                #{needAvIdea},
+            </if>
+            <if test="needExplain!=null">
+                #{needExplain},
+            </if>
+            <if test="buyMan!=null">
+                #{buyMan},
+            </if>
+            <if test="buyTime!=null">
+                #{buyTime},
+            </if>
+            <if test="buyAvMan!=null">
+                #{buyAvMan},
+            </if>
+            <if test="buyAvTime!=null">
+                #{buyAvTime},
+            </if>
+            <if test="buyAvIdea!=null">
+                #{buyAvIdea},
+            </if>
+            <if test="buyExplain!=null">
+                #{buyExplain},
+            </if>
+        </trim>
+        )
+    </insert>
+
+
+    <update id="updateTbPlan">
+        UPDATE `tb_plan`
+        SET
+        <trim suffixOverrides=",">
+            <if test="planName != null and planName!=''">
+                `plan_name` = #{planName},
+            </if>
+            <if test="planType != null and planType!=''">
+                `plan_type` = #{planType},
+            </if>
+            <if test="mrCfNum != null and mrCfNum!=''">
+                `mr_cf_num` = #{mrCfNum},
+            </if>
+            <if test="mrNum != null and mrNum!=''">
+                `mr_num` = #{mrNum},
+            </if>
+            <if test="needNum != null">
+                `need_num` = #{needNum},
+            </if>
+            <if test="writeTime != null">
+                `write_time` = #{writeTime},
+            </if>
+            <if test="needUnit != null and needUnit!=''">
+                `need_unit` = #{needUnit},
+            </if>
+            <if test="avStatus != null and avStatus!=''">
+                `av_status` = #{avStatus},
+            </if>
+            <if test="needMonth != null and needMonth!=''">
+                `need_month` = #{needMonth},
+            </if>
+            <if test="ynSupply != null">
+                `yn_supply` = #{ynSupply},
+            </if>
+            <if test="wtSupply != null and wtSupply!=''">
+                `wt_supply` = #{wtSupply},
+            </if>
+            <if test="ftSupply != null and ftSupply!=''">
+                `ft_supply` = #{ftSupply},
+            </if>
+            <if test="mrTrace != null and mrTrace!=''">
+                `mr_trace` = #{mrTrace},
+            </if>
+            <if test="remark != null and remark!=''">
+                `remark` = #{remark},
+            </if>
+            <if test="needMan != null and needMan!=''">
+                `need_man` = #{needMan},
+            </if>
+            <if test="needTime != null">
+                `need_time` = #{needTime},
+            </if>
+            <if test="needAvMan != null and needAvMan!=''">
+                `need_av_man` = #{needAvMan},
+            </if>
+            <if test="needAvTime != null">
+                `need_av_time` = #{needAvTime},
+            </if>
+            <if test="needAvIdea != null and needAvIdea!=''">
+                `need_av_idea` = #{needAvIdea},
+            </if>
+            <if test="needExplain != null and needExplain!=''">
+                `need_explain` = #{needExplain},
+            </if>
+            <if test="buyMan != null and buyMan!=''">
+                `buy_man` = #{buyMan},
+            </if>
+            <if test="buyTime != null">
+                `buy_time` = #{buyTime},
+            </if>
+            <if test="buyAvMan != null and buyAvMan!=''">
+                `buy_av_man` = #{buyAvMan},
+            </if>
+            <if test="buyAvTime != null">
+                `buy_av_time` = #{buyAvTime},
+            </if>
+            <if test="buyAvIdea != null and buyAvIdea!=''">
+                `buy_av_idea` = #{buyAvIdea},
+            </if>
+            <if test="buyExplain != null and buyExplain!=''">
+                `buy_explain` = #{buyExplain},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+            `num` = #{num} and
+        </trim>
+    </update>
+
+    <update id="update">
+        UPDATE `tb_plan`
+        SET
+        <trim suffixOverrides=",">
+            <if test="set.planName != null and set.planName!=''">
+                `plan_name` = #{set.planName},
+            </if>
+            <if test="set.planType != null and set.planType!=''">
+                `plan_type` = #{set.planType},
+            </if>
+            <if test="set.mrCfNum != null and set.mrCfNum!=''">
+                `mr_cf_num` = #{set.mrCfNum},
+            </if>
+            <if test="set.mrNum != null and set.mrNum!=''">
+                `mr_num` = #{set.mrNum},
+            </if>
+            <if test="set.needNum != null">
+                `need_num` = #{set.needNum},
+            </if>
+            <if test="set.writeTime != null">
+                `write_time` = #{set.writeTime},
+            </if>
+            <if test="set.needUnit != null and set.needUnit!=''">
+                `need_unit` = #{set.needUnit},
+            </if>
+            <if test="set.avStatus != null and set.avStatus!=''">
+                `av_status` = #{set.avStatus},
+            </if>
+            <if test="set.needMonth != null and set.needMonth!=''">
+                `need_month` = #{set.needMonth},
+            </if>
+            <if test="set.ynSupply != null">
+                `yn_supply` = #{set.ynSupply},
+            </if>
+            <if test="set.wtSupply != null and set.wtSupply!=''">
+                `wt_supply` = #{set.wtSupply},
+            </if>
+            <if test="set.ftSupply != null and set.ftSupply!=''">
+                `ft_supply` = #{set.ftSupply},
+            </if>
+            <if test="set.mrTrace != null and set.mrTrace!=''">
+                `mr_trace` = #{set.mrTrace},
+            </if>
+            <if test="set.remark != null and set.remark!=''">
+                `remark` = #{set.remark},
+            </if>
+            <if test="set.needMan != null and set.needMan!=''">
+                `need_man` = #{set.needMan},
+            </if>
+            <if test="set.needTime != null">
+                `need_time` = #{set.needTime},
+            </if>
+            <if test="set.needAvMan != null and set.needAvMan!=''">
+                `need_av_man` = #{set.needAvMan},
+            </if>
+            <if test="set.needAvTime != null">
+                `need_av_time` = #{set.needAvTime},
+            </if>
+            <if test="set.needAvIdea != null and set.needAvIdea!=''">
+                `need_av_idea` = #{set.needAvIdea},
+            </if>
+            <if test="set.needExplain != null and set.needExplain!=''">
+                `need_explain` = #{set.needExplain},
+            </if>
+            <if test="set.buyMan != null and set.buyMan!=''">
+                `buy_man` = #{set.buyMan},
+            </if>
+            <if test="set.buyTime != null">
+                `buy_time` = #{set.buyTime},
+            </if>
+            <if test="set.buyAvMan != null and set.buyAvMan!=''">
+                `buy_av_man` = #{set.buyAvMan},
+            </if>
+            <if test="set.buyAvTime != null">
+                `buy_av_time` = #{set.buyAvTime},
+            </if>
+            <if test="set.buyAvIdea != null and set.buyAvIdea!=''">
+                `buy_av_idea` = #{set.buyAvIdea},
+            </if>
+            <if test="set.buyExplain != null and set.buyExplain!=''">
+                `buy_explain` = #{set.buyExplain},
+            </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="where.numList != null">
+                `num` in
+                <foreach collection="where.numList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.numSt !=null">
+                `num` >= #{where.numSt} and
+            </if>
+            <if test="where.numEd!=null">
+                `num` &lt;= #{where.numEd} and
+            </if>
+            <if test="where.planNameList != null">
+                `plan_name` in
+                <foreach collection="where.planNameList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyPlanName!=null and where.fuzzyPlanName.size()>0">
+                (
+                <foreach collection="where.fuzzyPlanName" separator="or" item="item">
+                    `Plan_name` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyPlanName!=null and where.rightFuzzyPlanName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPlanName" separator="or" item="item">
+                    `Plan_name` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.planTypeList != null">
+                `plan_type` in
+                <foreach collection="where.planTypeList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyPlanType!=null and where.fuzzyPlanType.size()>0">
+                (
+                <foreach collection="where.fuzzyPlanType" separator="or" item="item">
+                    `Plan_type` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyPlanType!=null and where.rightFuzzyPlanType.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPlanType" separator="or" item="item">
+                    `Plan_type` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.mrCfNumList != null">
+                `mr_cf_num` in
+                <foreach collection="where.mrCfNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyMrCfNum!=null and where.fuzzyMrCfNum.size()>0">
+                (
+                <foreach collection="where.fuzzyMrCfNum" separator="or" item="item">
+                    `Mr_cf_num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyMrCfNum!=null and where.rightFuzzyMrCfNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMrCfNum" separator="or" item="item">
+                    `Mr_cf_num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.mrNumList != null">
+                `mr_num` in
+                <foreach collection="where.mrNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyMrNum!=null and where.fuzzyMrNum.size()>0">
+                (
+                <foreach collection="where.fuzzyMrNum" separator="or" item="item">
+                    `Mr_num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyMrNum!=null and where.rightFuzzyMrNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMrNum" separator="or" item="item">
+                    `Mr_num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.needNumList != null">
+                `need_num` in
+                <foreach collection="where.needNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.needNumSt !=null">
+                `need_num` >= #{where.needNumSt} and
+            </if>
+            <if test="where.needNumEd!=null">
+                `need_num` &lt;= #{where.needNumEd} and
+            </if>
+            <if test="where.writeTimeList != null">
+                `write_time` in
+                <foreach collection="where.writeTimeList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.writeTimeSt !=null">
+                `write_time` >= #{where.writeTimeSt} and
+            </if>
+            <if test="where.writeTimeEd!=null">
+                `write_time` &lt;= #{where.writeTimeEd} and
+            </if>
+            <if test="where.needUnitList != null">
+                `need_unit` in
+                <foreach collection="where.needUnitList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyNeedUnit!=null and where.fuzzyNeedUnit.size()>0">
+                (
+                <foreach collection="where.fuzzyNeedUnit" separator="or" item="item">
+                    `Need_unit` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyNeedUnit!=null and where.rightFuzzyNeedUnit.size()>0">
+                (
+                <foreach collection="where.rightFuzzyNeedUnit" separator="or" item="item">
+                    `Need_unit` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.avStatusList != null">
+                `av_status` in
+                <foreach collection="where.avStatusList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyAvStatus!=null and where.fuzzyAvStatus.size()>0">
+                (
+                <foreach collection="where.fuzzyAvStatus" separator="or" item="item">
+                    `Av_status` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyAvStatus!=null and where.rightFuzzyAvStatus.size()>0">
+                (
+                <foreach collection="where.rightFuzzyAvStatus" separator="or" item="item">
+                    `Av_status` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.needMonthList != null">
+                `need_month` in
+                <foreach collection="where.needMonthList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyNeedMonth!=null and where.fuzzyNeedMonth.size()>0">
+                (
+                <foreach collection="where.fuzzyNeedMonth" separator="or" item="item">
+                    `Need_month` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyNeedMonth!=null and where.rightFuzzyNeedMonth.size()>0">
+                (
+                <foreach collection="where.rightFuzzyNeedMonth" separator="or" item="item">
+                    `Need_month` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.ynSupplyList != null">
+                `yn_supply` in
+                <foreach collection="where.ynSupplyList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.ynSupplySt !=null">
+                `yn_supply` >= #{where.ynSupplySt} and
+            </if>
+            <if test="where.ynSupplyEd!=null">
+                `yn_supply` &lt;= #{where.ynSupplyEd} and
+            </if>
+            <if test="where.wtSupplyList != null">
+                `wt_supply` in
+                <foreach collection="where.wtSupplyList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyWtSupply!=null and where.fuzzyWtSupply.size()>0">
+                (
+                <foreach collection="where.fuzzyWtSupply" separator="or" item="item">
+                    `Wt_supply` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyWtSupply!=null and where.rightFuzzyWtSupply.size()>0">
+                (
+                <foreach collection="where.rightFuzzyWtSupply" separator="or" item="item">
+                    `Wt_supply` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.ftSupplyList != null">
+                `ft_supply` in
+                <foreach collection="where.ftSupplyList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyFtSupply!=null and where.fuzzyFtSupply.size()>0">
+                (
+                <foreach collection="where.fuzzyFtSupply" separator="or" item="item">
+                    `Ft_supply` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyFtSupply!=null and where.rightFuzzyFtSupply.size()>0">
+                (
+                <foreach collection="where.rightFuzzyFtSupply" separator="or" item="item">
+                    `Ft_supply` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.mrTraceList != null">
+                `mr_trace` in
+                <foreach collection="where.mrTraceList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyMrTrace!=null and where.fuzzyMrTrace.size()>0">
+                (
+                <foreach collection="where.fuzzyMrTrace" separator="or" item="item">
+                    `Mr_trace` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyMrTrace!=null and where.rightFuzzyMrTrace.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMrTrace" separator="or" item="item">
+                    `Mr_trace` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.remarkList != null">
+                `remark` in
+                <foreach collection="where.remarkList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyRemark!=null and where.fuzzyRemark.size()>0">
+                (
+                <foreach collection="where.fuzzyRemark" separator="or" item="item">
+                    `Remark` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyRemark!=null and where.rightFuzzyRemark.size()>0">
+                (
+                <foreach collection="where.rightFuzzyRemark" separator="or" item="item">
+                    `Remark` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.needManList != null">
+                `need_man` in
+                <foreach collection="where.needManList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyNeedMan!=null and where.fuzzyNeedMan.size()>0">
+                (
+                <foreach collection="where.fuzzyNeedMan" separator="or" item="item">
+                    `Need_man` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyNeedMan!=null and where.rightFuzzyNeedMan.size()>0">
+                (
+                <foreach collection="where.rightFuzzyNeedMan" separator="or" item="item">
+                    `Need_man` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.needTimeList != null">
+                `need_time` in
+                <foreach collection="where.needTimeList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.needTimeSt !=null">
+                `need_time` >= #{where.needTimeSt} and
+            </if>
+            <if test="where.needTimeEd!=null">
+                `need_time` &lt;= #{where.needTimeEd} and
+            </if>
+            <if test="where.needAvManList != null">
+                `need_av_man` in
+                <foreach collection="where.needAvManList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyNeedAvMan!=null and where.fuzzyNeedAvMan.size()>0">
+                (
+                <foreach collection="where.fuzzyNeedAvMan" separator="or" item="item">
+                    `Need_av_man` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyNeedAvMan!=null and where.rightFuzzyNeedAvMan.size()>0">
+                (
+                <foreach collection="where.rightFuzzyNeedAvMan" separator="or" item="item">
+                    `Need_av_man` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.needAvTimeList != null">
+                `need_av_time` in
+                <foreach collection="where.needAvTimeList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.needAvTimeSt !=null">
+                `need_av_time` >= #{where.needAvTimeSt} and
+            </if>
+            <if test="where.needAvTimeEd!=null">
+                `need_av_time` &lt;= #{where.needAvTimeEd} and
+            </if>
+            <if test="where.needAvIdeaList != null">
+                `need_av_idea` in
+                <foreach collection="where.needAvIdeaList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyNeedAvIdea!=null and where.fuzzyNeedAvIdea.size()>0">
+                (
+                <foreach collection="where.fuzzyNeedAvIdea" separator="or" item="item">
+                    `Need_av_idea` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyNeedAvIdea!=null and where.rightFuzzyNeedAvIdea.size()>0">
+                (
+                <foreach collection="where.rightFuzzyNeedAvIdea" separator="or" item="item">
+                    `Need_av_idea` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.needExplainList != null">
+                `need_explain` in
+                <foreach collection="where.needExplainList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyNeedExplain!=null and where.fuzzyNeedExplain.size()>0">
+                (
+                <foreach collection="where.fuzzyNeedExplain" separator="or" item="item">
+                    `Need_explain` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyNeedExplain!=null and where.rightFuzzyNeedExplain.size()>0">
+                (
+                <foreach collection="where.rightFuzzyNeedExplain" separator="or" item="item">
+                    `Need_explain` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.buyManList != null">
+                `buy_man` in
+                <foreach collection="where.buyManList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyBuyMan!=null and where.fuzzyBuyMan.size()>0">
+                (
+                <foreach collection="where.fuzzyBuyMan" separator="or" item="item">
+                    `Buy_man` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyBuyMan!=null and where.rightFuzzyBuyMan.size()>0">
+                (
+                <foreach collection="where.rightFuzzyBuyMan" separator="or" item="item">
+                    `Buy_man` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.buyTimeList != null">
+                `buy_time` in
+                <foreach collection="where.buyTimeList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.buyTimeSt !=null">
+                `buy_time` >= #{where.buyTimeSt} and
+            </if>
+            <if test="where.buyTimeEd!=null">
+                `buy_time` &lt;= #{where.buyTimeEd} and
+            </if>
+            <if test="where.buyAvManList != null">
+                `buy_av_man` in
+                <foreach collection="where.buyAvManList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyBuyAvMan!=null and where.fuzzyBuyAvMan.size()>0">
+                (
+                <foreach collection="where.fuzzyBuyAvMan" separator="or" item="item">
+                    `Buy_av_man` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyBuyAvMan!=null and where.rightFuzzyBuyAvMan.size()>0">
+                (
+                <foreach collection="where.rightFuzzyBuyAvMan" separator="or" item="item">
+                    `Buy_av_man` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.buyAvTimeList != null">
+                `buy_av_time` in
+                <foreach collection="where.buyAvTimeList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.buyAvTimeSt !=null">
+                `buy_av_time` >= #{where.buyAvTimeSt} and
+            </if>
+            <if test="where.buyAvTimeEd!=null">
+                `buy_av_time` &lt;= #{where.buyAvTimeEd} and
+            </if>
+            <if test="where.buyAvIdeaList != null">
+                `buy_av_idea` in
+                <foreach collection="where.buyAvIdeaList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyBuyAvIdea!=null and where.fuzzyBuyAvIdea.size()>0">
+                (
+                <foreach collection="where.fuzzyBuyAvIdea" separator="or" item="item">
+                    `Buy_av_idea` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyBuyAvIdea!=null and where.rightFuzzyBuyAvIdea.size()>0">
+                (
+                <foreach collection="where.rightFuzzyBuyAvIdea" separator="or" item="item">
+                    `Buy_av_idea` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.buyExplainList != null">
+                `buy_explain` in
+                <foreach collection="where.buyExplainList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyBuyExplain!=null and where.fuzzyBuyExplain.size()>0">
+                (
+                <foreach collection="where.fuzzyBuyExplain" separator="or" item="item">
+                    `Buy_explain` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyBuyExplain!=null and where.rightFuzzyBuyExplain.size()>0">
+                (
+                <foreach collection="where.rightFuzzyBuyExplain" separator="or" item="item">
+                    `Buy_explain` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+        </trim>
+    </update>
+
+
+    <resultMap type="cn.edu.gues.pojo.TbPlan" id="TbPlanMap">
+        <result property="num" column="num"/>
+        <result property="planName" column="plan_name"/>
+        <result property="planType" column="plan_type"/>
+        <result property="mrCfNum" column="mr_cf_num"/>
+        <result property="mrNum" column="mr_num"/>
+        <result property="needNum" column="need_num"/>
+        <result property="writeTime" column="write_time"/>
+        <result property="needUnit" column="need_unit"/>
+        <result property="avStatus" column="av_status"/>
+        <result property="needMonth" column="need_month"/>
+        <result property="ynSupply" column="yn_supply"/>
+        <result property="wtSupply" column="wt_supply"/>
+        <result property="ftSupply" column="ft_supply"/>
+        <result property="mrTrace" column="mr_trace"/>
+        <result property="remark" column="remark"/>
+        <result property="needMan" column="need_man"/>
+        <result property="needTime" column="need_time"/>
+        <result property="needAvMan" column="need_av_man"/>
+        <result property="needAvTime" column="need_av_time"/>
+        <result property="needAvIdea" column="need_av_idea"/>
+        <result property="needExplain" column="need_explain"/>
+        <result property="buyMan" column="buy_man"/>
+        <result property="buyTime" column="buy_time"/>
+        <result property="buyAvMan" column="buy_av_man"/>
+        <result property="buyAvTime" column="buy_av_time"/>
+        <result property="buyAvIdea" column="buy_av_idea"/>
+        <result property="buyExplain" column="buy_explain"/>
+    </resultMap>
+
+    <select id="queryTbPlan" resultMap="TbPlanMap">
+        select
+        <include refid="baseResult"></include>
+        from `tb_plan`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="num != null">
+                `num` = #{num} and
+            </if>
+            <if test="planName != null and planName!=''">
+                `plan_name` = #{planName} and
+            </if>
+            <if test="planType != null and planType!=''">
+                `plan_type` = #{planType} and
+            </if>
+            <if test="mrCfNum != null and mrCfNum!=''">
+                `mr_cf_num` = #{mrCfNum} and
+            </if>
+            <if test="mrNum != null and mrNum!=''">
+                `mr_num` = #{mrNum} and
+            </if>
+            <if test="needNum != null">
+                `need_num` = #{needNum} and
+            </if>
+            <if test="writeTime != null">
+                `write_time` = #{writeTime} and
+            </if>
+            <if test="needUnit != null and needUnit!=''">
+                `need_unit` = #{needUnit} and
+            </if>
+            <if test="avStatus != null and avStatus!=''">
+                `av_status` = #{avStatus} and
+            </if>
+            <if test="needMonth != null and needMonth!=''">
+                `need_month` = #{needMonth} and
+            </if>
+            <if test="ynSupply != null">
+                `yn_supply` = #{ynSupply} and
+            </if>
+            <if test="wtSupply != null and wtSupply!=''">
+                `wt_supply` = #{wtSupply} and
+            </if>
+            <if test="ftSupply != null and ftSupply!=''">
+                `ft_supply` = #{ftSupply} and
+            </if>
+            <if test="mrTrace != null and mrTrace!=''">
+                `mr_trace` = #{mrTrace} and
+            </if>
+            <if test="remark != null and remark!=''">
+                `remark` = #{remark} and
+            </if>
+            <if test="needMan != null and needMan!=''">
+                `need_man` = #{needMan} and
+            </if>
+            <if test="needTime != null">
+                `need_time` = #{needTime} and
+            </if>
+            <if test="needAvMan != null and needAvMan!=''">
+                `need_av_man` = #{needAvMan} and
+            </if>
+            <if test="needAvTime != null">
+                `need_av_time` = #{needAvTime} and
+            </if>
+            <if test="needAvIdea != null and needAvIdea!=''">
+                `need_av_idea` = #{needAvIdea} and
+            </if>
+            <if test="needExplain != null and needExplain!=''">
+                `need_explain` = #{needExplain} and
+            </if>
+            <if test="buyMan != null and buyMan!=''">
+                `buy_man` = #{buyMan} and
+            </if>
+            <if test="buyTime != null">
+                `buy_time` = #{buyTime} and
+            </if>
+            <if test="buyAvMan != null and buyAvMan!=''">
+                `buy_av_man` = #{buyAvMan} and
+            </if>
+            <if test="buyAvTime != null">
+                `buy_av_time` = #{buyAvTime} and
+            </if>
+            <if test="buyAvIdea != null and buyAvIdea!=''">
+                `buy_av_idea` = #{buyAvIdea} and
+            </if>
+            <if test="buyExplain != null and buyExplain!=''">
+                `buy_explain` = #{buyExplain} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbPlan$QueryBuilder) == true">
+                <if test="numList != null">
+                    `num` in
+                    <foreach collection="numList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="numSt !=null">
+                    `num` >= #{numSt} and
+                </if>
+                <if test="numEd!=null">
+                    `num` &lt;= #{numEd} and
+                </if>
+                <if test="planNameList != null">
+                    `plan_name` in
+                    <foreach collection="planNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPlanName!=null and fuzzyPlanName.size()>0">
+                    (
+                    <foreach collection="fuzzyPlanName" separator="or" item="item">
+                        `Plan_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPlanName!=null and rightFuzzyPlanName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPlanName" separator="or" item="item">
+                        `Plan_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="planTypeList != null">
+                    `plan_type` in
+                    <foreach collection="planTypeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPlanType!=null and fuzzyPlanType.size()>0">
+                    (
+                    <foreach collection="fuzzyPlanType" separator="or" item="item">
+                        `Plan_type` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPlanType!=null and rightFuzzyPlanType.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPlanType" separator="or" item="item">
+                        `Plan_type` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrCfNumList != null">
+                    `mr_cf_num` in
+                    <foreach collection="mrCfNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrCfNum!=null and fuzzyMrCfNum.size()>0">
+                    (
+                    <foreach collection="fuzzyMrCfNum" separator="or" item="item">
+                        `Mr_cf_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrCfNum!=null and rightFuzzyMrCfNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrCfNum" separator="or" item="item">
+                        `Mr_cf_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrNumList != null">
+                    `mr_num` in
+                    <foreach collection="mrNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrNum!=null and fuzzyMrNum.size()>0">
+                    (
+                    <foreach collection="fuzzyMrNum" separator="or" item="item">
+                        `Mr_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrNum!=null and rightFuzzyMrNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrNum" separator="or" item="item">
+                        `Mr_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needNumList != null">
+                    `need_num` in
+                    <foreach collection="needNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="needNumSt !=null">
+                    `need_num` >= #{needNumSt} and
+                </if>
+                <if test="needNumEd!=null">
+                    `need_num` &lt;= #{needNumEd} and
+                </if>
+                <if test="writeTimeList != null">
+                    `write_time` in
+                    <foreach collection="writeTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="writeTimeSt !=null">
+                    `write_time` >= #{writeTimeSt} and
+                </if>
+                <if test="writeTimeEd!=null">
+                    `write_time` &lt;= #{writeTimeEd} and
+                </if>
+                <if test="needUnitList != null">
+                    `need_unit` in
+                    <foreach collection="needUnitList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedUnit!=null and fuzzyNeedUnit.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedUnit" separator="or" item="item">
+                        `Need_unit` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedUnit!=null and rightFuzzyNeedUnit.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedUnit" separator="or" item="item">
+                        `Need_unit` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="avStatusList != null">
+                    `av_status` in
+                    <foreach collection="avStatusList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyAvStatus!=null and fuzzyAvStatus.size()>0">
+                    (
+                    <foreach collection="fuzzyAvStatus" separator="or" item="item">
+                        `Av_status` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyAvStatus!=null and rightFuzzyAvStatus.size()>0">
+                    (
+                    <foreach collection="rightFuzzyAvStatus" separator="or" item="item">
+                        `Av_status` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needMonthList != null">
+                    `need_month` in
+                    <foreach collection="needMonthList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedMonth!=null and fuzzyNeedMonth.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedMonth" separator="or" item="item">
+                        `Need_month` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedMonth!=null and rightFuzzyNeedMonth.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedMonth" separator="or" item="item">
+                        `Need_month` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ynSupplyList != null">
+                    `yn_supply` in
+                    <foreach collection="ynSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynSupplySt !=null">
+                    `yn_supply` >= #{ynSupplySt} and
+                </if>
+                <if test="ynSupplyEd!=null">
+                    `yn_supply` &lt;= #{ynSupplyEd} and
+                </if>
+                <if test="wtSupplyList != null">
+                    `wt_supply` in
+                    <foreach collection="wtSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyWtSupply!=null and fuzzyWtSupply.size()>0">
+                    (
+                    <foreach collection="fuzzyWtSupply" separator="or" item="item">
+                        `Wt_supply` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyWtSupply!=null and rightFuzzyWtSupply.size()>0">
+                    (
+                    <foreach collection="rightFuzzyWtSupply" separator="or" item="item">
+                        `Wt_supply` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ftSupplyList != null">
+                    `ft_supply` in
+                    <foreach collection="ftSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyFtSupply!=null and fuzzyFtSupply.size()>0">
+                    (
+                    <foreach collection="fuzzyFtSupply" separator="or" item="item">
+                        `Ft_supply` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyFtSupply!=null and rightFuzzyFtSupply.size()>0">
+                    (
+                    <foreach collection="rightFuzzyFtSupply" separator="or" item="item">
+                        `Ft_supply` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrTraceList != null">
+                    `mr_trace` in
+                    <foreach collection="mrTraceList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrTrace!=null and fuzzyMrTrace.size()>0">
+                    (
+                    <foreach collection="fuzzyMrTrace" separator="or" item="item">
+                        `Mr_trace` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrTrace!=null and rightFuzzyMrTrace.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrTrace" separator="or" item="item">
+                        `Mr_trace` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="remarkList != null">
+                    `remark` in
+                    <foreach collection="remarkList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyRemark!=null and fuzzyRemark.size()>0">
+                    (
+                    <foreach collection="fuzzyRemark" separator="or" item="item">
+                        `Remark` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyRemark!=null and rightFuzzyRemark.size()>0">
+                    (
+                    <foreach collection="rightFuzzyRemark" separator="or" item="item">
+                        `Remark` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needManList != null">
+                    `need_man` in
+                    <foreach collection="needManList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedMan!=null and fuzzyNeedMan.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedMan" separator="or" item="item">
+                        `Need_man` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedMan!=null and rightFuzzyNeedMan.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedMan" separator="or" item="item">
+                        `Need_man` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needTimeList != null">
+                    `need_time` in
+                    <foreach collection="needTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="needTimeSt !=null">
+                    `need_time` >= #{needTimeSt} and
+                </if>
+                <if test="needTimeEd!=null">
+                    `need_time` &lt;= #{needTimeEd} and
+                </if>
+                <if test="needAvManList != null">
+                    `need_av_man` in
+                    <foreach collection="needAvManList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedAvMan!=null and fuzzyNeedAvMan.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedAvMan" separator="or" item="item">
+                        `Need_av_man` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedAvMan!=null and rightFuzzyNeedAvMan.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedAvMan" separator="or" item="item">
+                        `Need_av_man` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needAvTimeList != null">
+                    `need_av_time` in
+                    <foreach collection="needAvTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="needAvTimeSt !=null">
+                    `need_av_time` >= #{needAvTimeSt} and
+                </if>
+                <if test="needAvTimeEd!=null">
+                    `need_av_time` &lt;= #{needAvTimeEd} and
+                </if>
+                <if test="needAvIdeaList != null">
+                    `need_av_idea` in
+                    <foreach collection="needAvIdeaList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedAvIdea!=null and fuzzyNeedAvIdea.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedAvIdea" separator="or" item="item">
+                        `Need_av_idea` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedAvIdea!=null and rightFuzzyNeedAvIdea.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedAvIdea" separator="or" item="item">
+                        `Need_av_idea` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needExplainList != null">
+                    `need_explain` in
+                    <foreach collection="needExplainList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedExplain!=null and fuzzyNeedExplain.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedExplain" separator="or" item="item">
+                        `Need_explain` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedExplain!=null and rightFuzzyNeedExplain.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedExplain" separator="or" item="item">
+                        `Need_explain` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="buyManList != null">
+                    `buy_man` in
+                    <foreach collection="buyManList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyBuyMan!=null and fuzzyBuyMan.size()>0">
+                    (
+                    <foreach collection="fuzzyBuyMan" separator="or" item="item">
+                        `Buy_man` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyBuyMan!=null and rightFuzzyBuyMan.size()>0">
+                    (
+                    <foreach collection="rightFuzzyBuyMan" separator="or" item="item">
+                        `Buy_man` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="buyTimeList != null">
+                    `buy_time` in
+                    <foreach collection="buyTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="buyTimeSt !=null">
+                    `buy_time` >= #{buyTimeSt} and
+                </if>
+                <if test="buyTimeEd!=null">
+                    `buy_time` &lt;= #{buyTimeEd} and
+                </if>
+                <if test="buyAvManList != null">
+                    `buy_av_man` in
+                    <foreach collection="buyAvManList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyBuyAvMan!=null and fuzzyBuyAvMan.size()>0">
+                    (
+                    <foreach collection="fuzzyBuyAvMan" separator="or" item="item">
+                        `Buy_av_man` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyBuyAvMan!=null and rightFuzzyBuyAvMan.size()>0">
+                    (
+                    <foreach collection="rightFuzzyBuyAvMan" separator="or" item="item">
+                        `Buy_av_man` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="buyAvTimeList != null">
+                    `buy_av_time` in
+                    <foreach collection="buyAvTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="buyAvTimeSt !=null">
+                    `buy_av_time` >= #{buyAvTimeSt} and
+                </if>
+                <if test="buyAvTimeEd!=null">
+                    `buy_av_time` &lt;= #{buyAvTimeEd} and
+                </if>
+                <if test="buyAvIdeaList != null">
+                    `buy_av_idea` in
+                    <foreach collection="buyAvIdeaList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyBuyAvIdea!=null and fuzzyBuyAvIdea.size()>0">
+                    (
+                    <foreach collection="fuzzyBuyAvIdea" separator="or" item="item">
+                        `Buy_av_idea` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyBuyAvIdea!=null and rightFuzzyBuyAvIdea.size()>0">
+                    (
+                    <foreach collection="rightFuzzyBuyAvIdea" separator="or" item="item">
+                        `Buy_av_idea` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="buyExplainList != null">
+                    `buy_explain` in
+                    <foreach collection="buyExplainList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyBuyExplain!=null and fuzzyBuyExplain.size()>0">
+                    (
+                    <foreach collection="fuzzyBuyExplain" separator="or" item="item">
+                        `Buy_explain` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyBuyExplain!=null and rightFuzzyBuyExplain.size()>0">
+                    (
+                    <foreach collection="rightFuzzyBuyExplain" separator="or" item="item">
+                        `Buy_explain` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryTbPlanLimit1" resultMap="TbPlanMap">
+        select
+        <include refid="baseResult"></include>
+        from `tb_plan`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="num != null">
+                `num` = #{num} and
+            </if>
+            <if test="planName != null and planName!=''">
+                `plan_name` = #{planName} and
+            </if>
+            <if test="planType != null and planType!=''">
+                `plan_type` = #{planType} and
+            </if>
+            <if test="mrCfNum != null and mrCfNum!=''">
+                `mr_cf_num` = #{mrCfNum} and
+            </if>
+            <if test="mrNum != null and mrNum!=''">
+                `mr_num` = #{mrNum} and
+            </if>
+            <if test="needNum != null">
+                `need_num` = #{needNum} and
+            </if>
+            <if test="writeTime != null">
+                `write_time` = #{writeTime} and
+            </if>
+            <if test="needUnit != null and needUnit!=''">
+                `need_unit` = #{needUnit} and
+            </if>
+            <if test="avStatus != null and avStatus!=''">
+                `av_status` = #{avStatus} and
+            </if>
+            <if test="needMonth != null and needMonth!=''">
+                `need_month` = #{needMonth} and
+            </if>
+            <if test="ynSupply != null">
+                `yn_supply` = #{ynSupply} and
+            </if>
+            <if test="wtSupply != null and wtSupply!=''">
+                `wt_supply` = #{wtSupply} and
+            </if>
+            <if test="ftSupply != null and ftSupply!=''">
+                `ft_supply` = #{ftSupply} and
+            </if>
+            <if test="mrTrace != null and mrTrace!=''">
+                `mr_trace` = #{mrTrace} and
+            </if>
+            <if test="remark != null and remark!=''">
+                `remark` = #{remark} and
+            </if>
+            <if test="needMan != null and needMan!=''">
+                `need_man` = #{needMan} and
+            </if>
+            <if test="needTime != null">
+                `need_time` = #{needTime} and
+            </if>
+            <if test="needAvMan != null and needAvMan!=''">
+                `need_av_man` = #{needAvMan} and
+            </if>
+            <if test="needAvTime != null">
+                `need_av_time` = #{needAvTime} and
+            </if>
+            <if test="needAvIdea != null and needAvIdea!=''">
+                `need_av_idea` = #{needAvIdea} and
+            </if>
+            <if test="needExplain != null and needExplain!=''">
+                `need_explain` = #{needExplain} and
+            </if>
+            <if test="buyMan != null and buyMan!=''">
+                `buy_man` = #{buyMan} and
+            </if>
+            <if test="buyTime != null">
+                `buy_time` = #{buyTime} and
+            </if>
+            <if test="buyAvMan != null and buyAvMan!=''">
+                `buy_av_man` = #{buyAvMan} and
+            </if>
+            <if test="buyAvTime != null">
+                `buy_av_time` = #{buyAvTime} and
+            </if>
+            <if test="buyAvIdea != null and buyAvIdea!=''">
+                `buy_av_idea` = #{buyAvIdea} and
+            </if>
+            <if test="buyExplain != null and buyExplain!=''">
+                `buy_explain` = #{buyExplain} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbPlan$QueryBuilder) == true">
+                <if test="numList != null">
+                    `num` in
+                    <foreach collection="numList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="numSt !=null">
+                    `num` >= #{numSt} and
+                </if>
+                <if test="numEd!=null">
+                    `num` &lt;= #{numEd} and
+                </if>
+                <if test="planNameList != null">
+                    `plan_name` in
+                    <foreach collection="planNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPlanName!=null and fuzzyPlanName.size()>0">
+                    (
+                    <foreach collection="fuzzyPlanName" separator="or" item="item">
+                        `Plan_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPlanName!=null and rightFuzzyPlanName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPlanName" separator="or" item="item">
+                        `Plan_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="planTypeList != null">
+                    `plan_type` in
+                    <foreach collection="planTypeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPlanType!=null and fuzzyPlanType.size()>0">
+                    (
+                    <foreach collection="fuzzyPlanType" separator="or" item="item">
+                        `Plan_type` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPlanType!=null and rightFuzzyPlanType.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPlanType" separator="or" item="item">
+                        `Plan_type` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrCfNumList != null">
+                    `mr_cf_num` in
+                    <foreach collection="mrCfNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrCfNum!=null and fuzzyMrCfNum.size()>0">
+                    (
+                    <foreach collection="fuzzyMrCfNum" separator="or" item="item">
+                        `Mr_cf_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrCfNum!=null and rightFuzzyMrCfNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrCfNum" separator="or" item="item">
+                        `Mr_cf_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrNumList != null">
+                    `mr_num` in
+                    <foreach collection="mrNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrNum!=null and fuzzyMrNum.size()>0">
+                    (
+                    <foreach collection="fuzzyMrNum" separator="or" item="item">
+                        `Mr_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrNum!=null and rightFuzzyMrNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrNum" separator="or" item="item">
+                        `Mr_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needNumList != null">
+                    `need_num` in
+                    <foreach collection="needNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="needNumSt !=null">
+                    `need_num` >= #{needNumSt} and
+                </if>
+                <if test="needNumEd!=null">
+                    `need_num` &lt;= #{needNumEd} and
+                </if>
+                <if test="writeTimeList != null">
+                    `write_time` in
+                    <foreach collection="writeTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="writeTimeSt !=null">
+                    `write_time` >= #{writeTimeSt} and
+                </if>
+                <if test="writeTimeEd!=null">
+                    `write_time` &lt;= #{writeTimeEd} and
+                </if>
+                <if test="needUnitList != null">
+                    `need_unit` in
+                    <foreach collection="needUnitList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedUnit!=null and fuzzyNeedUnit.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedUnit" separator="or" item="item">
+                        `Need_unit` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedUnit!=null and rightFuzzyNeedUnit.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedUnit" separator="or" item="item">
+                        `Need_unit` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="avStatusList != null">
+                    `av_status` in
+                    <foreach collection="avStatusList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyAvStatus!=null and fuzzyAvStatus.size()>0">
+                    (
+                    <foreach collection="fuzzyAvStatus" separator="or" item="item">
+                        `Av_status` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyAvStatus!=null and rightFuzzyAvStatus.size()>0">
+                    (
+                    <foreach collection="rightFuzzyAvStatus" separator="or" item="item">
+                        `Av_status` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needMonthList != null">
+                    `need_month` in
+                    <foreach collection="needMonthList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedMonth!=null and fuzzyNeedMonth.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedMonth" separator="or" item="item">
+                        `Need_month` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedMonth!=null and rightFuzzyNeedMonth.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedMonth" separator="or" item="item">
+                        `Need_month` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ynSupplyList != null">
+                    `yn_supply` in
+                    <foreach collection="ynSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynSupplySt !=null">
+                    `yn_supply` >= #{ynSupplySt} and
+                </if>
+                <if test="ynSupplyEd!=null">
+                    `yn_supply` &lt;= #{ynSupplyEd} and
+                </if>
+                <if test="wtSupplyList != null">
+                    `wt_supply` in
+                    <foreach collection="wtSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyWtSupply!=null and fuzzyWtSupply.size()>0">
+                    (
+                    <foreach collection="fuzzyWtSupply" separator="or" item="item">
+                        `Wt_supply` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyWtSupply!=null and rightFuzzyWtSupply.size()>0">
+                    (
+                    <foreach collection="rightFuzzyWtSupply" separator="or" item="item">
+                        `Wt_supply` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ftSupplyList != null">
+                    `ft_supply` in
+                    <foreach collection="ftSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyFtSupply!=null and fuzzyFtSupply.size()>0">
+                    (
+                    <foreach collection="fuzzyFtSupply" separator="or" item="item">
+                        `Ft_supply` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyFtSupply!=null and rightFuzzyFtSupply.size()>0">
+                    (
+                    <foreach collection="rightFuzzyFtSupply" separator="or" item="item">
+                        `Ft_supply` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrTraceList != null">
+                    `mr_trace` in
+                    <foreach collection="mrTraceList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrTrace!=null and fuzzyMrTrace.size()>0">
+                    (
+                    <foreach collection="fuzzyMrTrace" separator="or" item="item">
+                        `Mr_trace` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrTrace!=null and rightFuzzyMrTrace.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrTrace" separator="or" item="item">
+                        `Mr_trace` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="remarkList != null">
+                    `remark` in
+                    <foreach collection="remarkList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyRemark!=null and fuzzyRemark.size()>0">
+                    (
+                    <foreach collection="fuzzyRemark" separator="or" item="item">
+                        `Remark` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyRemark!=null and rightFuzzyRemark.size()>0">
+                    (
+                    <foreach collection="rightFuzzyRemark" separator="or" item="item">
+                        `Remark` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needManList != null">
+                    `need_man` in
+                    <foreach collection="needManList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedMan!=null and fuzzyNeedMan.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedMan" separator="or" item="item">
+                        `Need_man` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedMan!=null and rightFuzzyNeedMan.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedMan" separator="or" item="item">
+                        `Need_man` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needTimeList != null">
+                    `need_time` in
+                    <foreach collection="needTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="needTimeSt !=null">
+                    `need_time` >= #{needTimeSt} and
+                </if>
+                <if test="needTimeEd!=null">
+                    `need_time` &lt;= #{needTimeEd} and
+                </if>
+                <if test="needAvManList != null">
+                    `need_av_man` in
+                    <foreach collection="needAvManList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedAvMan!=null and fuzzyNeedAvMan.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedAvMan" separator="or" item="item">
+                        `Need_av_man` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedAvMan!=null and rightFuzzyNeedAvMan.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedAvMan" separator="or" item="item">
+                        `Need_av_man` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needAvTimeList != null">
+                    `need_av_time` in
+                    <foreach collection="needAvTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="needAvTimeSt !=null">
+                    `need_av_time` >= #{needAvTimeSt} and
+                </if>
+                <if test="needAvTimeEd!=null">
+                    `need_av_time` &lt;= #{needAvTimeEd} and
+                </if>
+                <if test="needAvIdeaList != null">
+                    `need_av_idea` in
+                    <foreach collection="needAvIdeaList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedAvIdea!=null and fuzzyNeedAvIdea.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedAvIdea" separator="or" item="item">
+                        `Need_av_idea` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedAvIdea!=null and rightFuzzyNeedAvIdea.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedAvIdea" separator="or" item="item">
+                        `Need_av_idea` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="needExplainList != null">
+                    `need_explain` in
+                    <foreach collection="needExplainList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNeedExplain!=null and fuzzyNeedExplain.size()>0">
+                    (
+                    <foreach collection="fuzzyNeedExplain" separator="or" item="item">
+                        `Need_explain` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNeedExplain!=null and rightFuzzyNeedExplain.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNeedExplain" separator="or" item="item">
+                        `Need_explain` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="buyManList != null">
+                    `buy_man` in
+                    <foreach collection="buyManList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyBuyMan!=null and fuzzyBuyMan.size()>0">
+                    (
+                    <foreach collection="fuzzyBuyMan" separator="or" item="item">
+                        `Buy_man` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyBuyMan!=null and rightFuzzyBuyMan.size()>0">
+                    (
+                    <foreach collection="rightFuzzyBuyMan" separator="or" item="item">
+                        `Buy_man` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="buyTimeList != null">
+                    `buy_time` in
+                    <foreach collection="buyTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="buyTimeSt !=null">
+                    `buy_time` >= #{buyTimeSt} and
+                </if>
+                <if test="buyTimeEd!=null">
+                    `buy_time` &lt;= #{buyTimeEd} and
+                </if>
+                <if test="buyAvManList != null">
+                    `buy_av_man` in
+                    <foreach collection="buyAvManList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyBuyAvMan!=null and fuzzyBuyAvMan.size()>0">
+                    (
+                    <foreach collection="fuzzyBuyAvMan" separator="or" item="item">
+                        `Buy_av_man` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyBuyAvMan!=null and rightFuzzyBuyAvMan.size()>0">
+                    (
+                    <foreach collection="rightFuzzyBuyAvMan" separator="or" item="item">
+                        `Buy_av_man` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="buyAvTimeList != null">
+                    `buy_av_time` in
+                    <foreach collection="buyAvTimeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="buyAvTimeSt !=null">
+                    `buy_av_time` >= #{buyAvTimeSt} and
+                </if>
+                <if test="buyAvTimeEd!=null">
+                    `buy_av_time` &lt;= #{buyAvTimeEd} and
+                </if>
+                <if test="buyAvIdeaList != null">
+                    `buy_av_idea` in
+                    <foreach collection="buyAvIdeaList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyBuyAvIdea!=null and fuzzyBuyAvIdea.size()>0">
+                    (
+                    <foreach collection="fuzzyBuyAvIdea" separator="or" item="item">
+                        `Buy_av_idea` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyBuyAvIdea!=null and rightFuzzyBuyAvIdea.size()>0">
+                    (
+                    <foreach collection="rightFuzzyBuyAvIdea" separator="or" item="item">
+                        `Buy_av_idea` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="buyExplainList != null">
+                    `buy_explain` in
+                    <foreach collection="buyExplainList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyBuyExplain!=null and fuzzyBuyExplain.size()>0">
+                    (
+                    <foreach collection="fuzzyBuyExplain" separator="or" item="item">
+                        `Buy_explain` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyBuyExplain!=null and rightFuzzyBuyExplain.size()>0">
+                    (
+                    <foreach collection="rightFuzzyBuyExplain" separator="or" item="item">
+                        `Buy_explain` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+        limit 1
+    </select>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+            `num`,
+            `plan_name`,
+            `plan_type`,
+            `mr_cf_num`,
+            `mr_num`,
+            `need_num`,
+            `write_time`,
+            `need_unit`,
+            `av_status`,
+            `need_month`,
+            `yn_supply`,
+            `wt_supply`,
+            `ft_supply`,
+            `mr_trace`,
+            `remark`,
+            `need_man`,
+            `need_time`,
+            `need_av_man`,
+            `need_av_time`,
+            `need_av_idea`,
+            `need_explain`,
+            `buy_man`,
+            `buy_time`,
+            `buy_av_man`,
+            `buy_av_time`,
+            `buy_av_idea`,
+            `buy_explain`,
+        </trim>
+    </sql>
+
+
+    <sql id="baseResult">
+        <trim suffixOverrides=",">
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbPlan$QueryBuilder) == true">
+
+                <if test="fetchFields==null">
+                    <include refid="allResult"></include>
+                </if>
+                <if test="fetchFields!=null">
+                    <if test="fetchFields.AllFields !=null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields ==null and fetchFields.fetchFields==null and fetchFields.excludeFields==null and fetchFields.otherFields==null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.fetchFields!=null">
+                        <if test="fetchFields.fetchFields.num==true">
+                            `num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.planName==true">
+                            `plan_name`,
+                        </if>
+                        <if test="fetchFields.fetchFields.planType==true">
+                            `plan_type`,
+                        </if>
+                        <if test="fetchFields.fetchFields.mrCfNum==true">
+                            `mr_cf_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.mrNum==true">
+                            `mr_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needNum==true">
+                            `need_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.writeTime==true">
+                            `write_time`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needUnit==true">
+                            `need_unit`,
+                        </if>
+                        <if test="fetchFields.fetchFields.avStatus==true">
+                            `av_status`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needMonth==true">
+                            `need_month`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ynSupply==true">
+                            `yn_supply`,
+                        </if>
+                        <if test="fetchFields.fetchFields.wtSupply==true">
+                            `wt_supply`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ftSupply==true">
+                            `ft_supply`,
+                        </if>
+                        <if test="fetchFields.fetchFields.mrTrace==true">
+                            `mr_trace`,
+                        </if>
+                        <if test="fetchFields.fetchFields.remark==true">
+                            `remark`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needMan==true">
+                            `need_man`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needTime==true">
+                            `need_time`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needAvMan==true">
+                            `need_av_man`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needAvTime==true">
+                            `need_av_time`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needAvIdea==true">
+                            `need_av_idea`,
+                        </if>
+                        <if test="fetchFields.fetchFields.needExplain==true">
+                            `need_explain`,
+                        </if>
+                        <if test="fetchFields.fetchFields.buyMan==true">
+                            `buy_man`,
+                        </if>
+                        <if test="fetchFields.fetchFields.buyTime==true">
+                            `buy_time`,
+                        </if>
+                        <if test="fetchFields.fetchFields.buyAvMan==true">
+                            `buy_av_man`,
+                        </if>
+                        <if test="fetchFields.fetchFields.buyAvTime==true">
+                            `buy_av_time`,
+                        </if>
+                        <if test="fetchFields.fetchFields.buyAvIdea==true">
+                            `buy_av_idea`,
+                        </if>
+                        <if test="fetchFields.fetchFields.buyExplain==true">
+                            `buy_explain`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.excludeFields!=null">
+                        <if test="fetchFields.excludeFields.num==null">
+                            `num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.planName==null">
+                            `plan_name`,
+                        </if>
+                        <if test="fetchFields.excludeFields.planType==null">
+                            `plan_type`,
+                        </if>
+                        <if test="fetchFields.excludeFields.mrCfNum==null">
+                            `mr_cf_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.mrNum==null">
+                            `mr_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needNum==null">
+                            `need_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.writeTime==null">
+                            `write_time`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needUnit==null">
+                            `need_unit`,
+                        </if>
+                        <if test="fetchFields.excludeFields.avStatus==null">
+                            `av_status`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needMonth==null">
+                            `need_month`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ynSupply==null">
+                            `yn_supply`,
+                        </if>
+                        <if test="fetchFields.excludeFields.wtSupply==null">
+                            `wt_supply`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ftSupply==null">
+                            `ft_supply`,
+                        </if>
+                        <if test="fetchFields.excludeFields.mrTrace==null">
+                            `mr_trace`,
+                        </if>
+                        <if test="fetchFields.excludeFields.remark==null">
+                            `remark`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needMan==null">
+                            `need_man`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needTime==null">
+                            `need_time`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needAvMan==null">
+                            `need_av_man`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needAvTime==null">
+                            `need_av_time`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needAvIdea==null">
+                            `need_av_idea`,
+                        </if>
+                        <if test="fetchFields.excludeFields.needExplain==null">
+                            `need_explain`,
+                        </if>
+                        <if test="fetchFields.excludeFields.buyMan==null">
+                            `buy_man`,
+                        </if>
+                        <if test="fetchFields.excludeFields.buyTime==null">
+                            `buy_time`,
+                        </if>
+                        <if test="fetchFields.excludeFields.buyAvMan==null">
+                            `buy_av_man`,
+                        </if>
+                        <if test="fetchFields.excludeFields.buyAvTime==null">
+                            `buy_av_time`,
+                        </if>
+                        <if test="fetchFields.excludeFields.buyAvIdea==null">
+                            `buy_av_idea`,
+                        </if>
+                        <if test="fetchFields.excludeFields.buyExplain==null">
+                            `buy_explain`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.otherFields!=null and fetchFields.otherFields.size>0">
+                        <foreach collection="fetchFields.otherFields" index="index" item="item" separator=",">
+                            `#{item}`
+                        </foreach>
+                    </if>
+                </if>
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbPlan$QueryBuilder) == false">
+                <include refid="allResult"></include>
+            </if>
+
+        </trim>
+    </sql>
+
+
+</mapper>

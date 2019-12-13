@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>需求计划查询/修改</title>
+    <!-- 告诉浏览器响应屏幕宽度 -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link href="../../res/css/bootsrap.min.css" rel="stylesheet">
+    <!-- 象形异体字 -->
+    <link href="../../res/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 主题风格 -->
+    <link href="../../res/css/AdminLLKXL.min.css" rel="stylesheet">
+    <!-- 皮肤 -->
+    <link href="../../res/css/_all-skins.min.css" rel="stylesheet">
+    <!--谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"
+          rel="stylesheet">
+    <!--导入vue.js有网的时候推荐-->
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--没网的时候-->
+    <!--script src="../../js/vue.js" type="text/javascript" charset="UTF-8"></script-->
+    <style type="text/css">
+        #mian-components {
+            text-align: center;
+
+        }
+
+        .btn-default {
+            margin-top: 10px;
+
+            margin-right: 35px;
+        }
+
+        .table {
+            text-align: center;
+        }
+
+        .table-mess {
+            width: 300px;
+            text-align: center;
+        }
+
+        .system-mess {
+            width: 600px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+    <header class="main-header">
+        <!-- Logo -->
+        <a class="logo" href="#">
+            <!-- 迷你标志为侧栏迷你50x50像素 -->
+            <span class="logo-mini"><b>L</b>B</span>
+            <!-- 常规状态和移动设备的徽标 -->
+            <span class="logo-lg">LLKXL智能制造系统</span>
+        </a>
+        <!-- 标题导航栏:样式可以在Header .less中找到 -->
+        <nav class="navbar navbar-static-top">
+            <!-- 侧边栏切换按钮-->
+            <a class="sidebar-toggle" data-toggle="push-menu" href="#" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- 用户帐号:风格可以在dropdown.less中找到 -->
+                    <li class="dropdown user user-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="hidden-xs">琳琳开心力</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <br>
+                                <br>
+                                <p>
+                                    琳琳开心力 - web开发人员
+                                    <small>2019.11.1</small>
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- 左列。包含徽标和边栏 -->
+    <aside class="main-sidebar">
+        <!-- 侧栏:style可以在sidebar.less中找到 -->
+        <section class="sidebar">
+            <!-- 侧栏菜单::style可以在sidebar.less中找到-->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">主要导航</li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-link"></i> <span>需求计划</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li>
+                            <a href="yearplantest.html">年度需求计划</a>
+                        </li>
+                        <li>
+                            <a href="urgentplantest.html">紧急需求计划</a>
+                        </li>
+                        <li>
+                            <a href="monthplantest.html">月度需求计划</a>
+                        </li>
+                        <li>
+                            <a href="../DemandPlan/demandPlanningEnquiry.html">需求计划查询/修改</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <!-- /.侧边栏描述 -->
+    </aside>
+    <!-- 内容包装器。包含页面内容 -->
+    <div class="content-wrapper">
+
+        <!-- 内容页眉(页眉） -->
+        <section class="content-header">
+            <h2 align="center">需求计划查询/修改</h2>
+        </section>
+        <!-- 主要内容 -->
+        <section class="content">
+            <!--需求计划查询/修改面-->
+            <div id="mian-components">
+                <!--按钮-->
+
+                <div id="button-components">
+                    <div aria-label="..." class="btn-group" role="group">
+                        <button class="btn btn-default " type="button">保存</button>
+                        <button class="btn btn-default " onclick="window.print()" type="button">打印</button>
+                        <button class="btn btn-default " type="button">导出</button>
+                        <button class="btn btn-default " type="button">撤回</button>
+
+                        <select class="btn btn-default ">
+                            <option value="volvo">汇总至</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        <button class="btn btn-default " type="button">删除</button>
+                        <button class="btn btn-default  " type="button">关闭/退出</button>
+                    </div>
+                </div>
+                <!--/按钮end-->
+                <hr/>
+
+            </div>
+            <!--需求计划查询/修改面end-->
+            <!--表格-->
+            <div>
+                <table class="table">
+                    <tr>
+                        <td>行号</td>
+                        <td>选择</td>
+                        <td>需求计划编码</td>
+                        <td>需求计划类型</td>
+                        <td>审批状态</td>
+                        <td>需求计划状态</td>
+                        <td>需求部门</td>
+                        <td>需求计划月份</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><input id="select" type="checkbox" value="isTrue">
+                            <label for="select"></label></td>
+                        <td><input id="" name="" readonly="readonly"
+                                   style="width:65px;text-align:center;background:#0073B7;"
+                                   type="text"/></td>
+
+                        <td>
+                            <input id="" name="" readonly="readonly"
+                                   style="width:65px;text-align:center;background:#0073B7;"
+                                   type="text"/>
+                        </td>
+                        <td>
+                            <input id="" name="" readonly="readonly"
+                                   style="width:65px;text-align:center;background:#0073B7;"
+                                   type="text"/>
+                        </td>
+                        <td>
+                            <input id="" name="" readonly="readonly"
+                                   style="width:65px;text-align:center;background:#0073B7;"
+                                   type="text"/>
+                        </td>
+                        <td>
+                            <input id="" name="" readonly="readonly"
+                                   style="width:65px;text-align:center;background:#0073B7;"
+                                   type="text"/>
+                        </td>
+                        <td>
+                            <input id="" name="" readonly="readonly"
+                                   style="width:65px;text-align:center;background:#0073B7;"
+                                   type="text"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--表格end-->
+        </section>
+    </div>
+    <!-- /.主要内容 -->
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 3.0.0
+        </div>
+        <strong>CRAETE TO 2019.11.1AdminLLKXL.</strong> 保留所有权
+    </footer>
+    <script type="text/javascript">
+
+    </script>
+    <!-- ./包装器 -->
+    <!-- jQuery 3 -->
+    <script src="../../res/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../res/js/bootstrap.min.js"></script>
+    <!-- 侧栏打开/关闭代码 -->
+    <script src="../../res/js/adminllkxl.min.js"></script>
+</div>
+</body>
+</html>

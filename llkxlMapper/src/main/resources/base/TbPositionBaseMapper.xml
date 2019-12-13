@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.gues.mapper.base.TbPositionBaseMapper">
+
+
+    <insert id="insertTbPosition">
+        INSERT INTO `tb_position`
+        (
+        <trim suffixOverrides=",">
+            <if test="ptNum!=null">
+                `pt_num`,
+            </if>
+            <if test="ptName!=null">
+                `pt_name`,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+            <if test="ptNum!=null">
+                #{ptNum},
+            </if>
+            <if test="ptName!=null">
+                #{ptName},
+            </if>
+        </trim>
+        )
+    </insert>
+
+
+    <update id="updateTbPosition">
+        UPDATE `tb_position`
+        SET
+        <trim suffixOverrides=",">
+            <if test="ptName != null and ptName!=''">
+                `pt_name` = #{ptName},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+            `pt_num` = #{ptNum} and
+        </trim>
+    </update>
+
+    <update id="update">
+        UPDATE `tb_position`
+        SET
+        <trim suffixOverrides=",">
+            <if test="set.ptName != null and set.ptName!=''">
+                `pt_name` = #{set.ptName},
+            </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="where.ptNumList != null">
+                `pt_num` in
+                <foreach collection="where.ptNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyPtNum!=null and where.fuzzyPtNum.size()>0">
+                (
+                <foreach collection="where.fuzzyPtNum" separator="or" item="item">
+                    `Pt_num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyPtNum!=null and where.rightFuzzyPtNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPtNum" separator="or" item="item">
+                    `Pt_num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.ptNameList != null">
+                `pt_name` in
+                <foreach collection="where.ptNameList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyPtName!=null and where.fuzzyPtName.size()>0">
+                (
+                <foreach collection="where.fuzzyPtName" separator="or" item="item">
+                    `Pt_name` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyPtName!=null and where.rightFuzzyPtName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPtName" separator="or" item="item">
+                    `Pt_name` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+        </trim>
+    </update>
+
+
+    <resultMap type="cn.edu.gues.pojo.TbPosition" id="TbPositionMap">
+        <result property="ptNum" column="pt_num"/>
+        <result property="ptName" column="pt_name"/>
+    </resultMap>
+
+
+    <select id="queryTbPosition" resultMap="TbPositionMap">
+        select
+        <include refid="baseResult"></include>
+        from `tb_position`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="ptNum != null and ptNum!=''">
+                `pt_num` = #{ptNum} and
+            </if>
+            <if test="ptName != null and ptName!=''">
+                `pt_name` = #{ptName} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbPosition$QueryBuilder) == true">
+                <if test="ptNumList != null">
+                    `pt_num` in
+                    <foreach collection="ptNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPtNum!=null and fuzzyPtNum.size()>0">
+                    (
+                    <foreach collection="fuzzyPtNum" separator="or" item="item">
+                        `Pt_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPtNum!=null and rightFuzzyPtNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPtNum" separator="or" item="item">
+                        `Pt_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ptNameList != null">
+                    `pt_name` in
+                    <foreach collection="ptNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPtName!=null and fuzzyPtName.size()>0">
+                    (
+                    <foreach collection="fuzzyPtName" separator="or" item="item">
+                        `Pt_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPtName!=null and rightFuzzyPtName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPtName" separator="or" item="item">
+                        `Pt_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryTbPositionLimit1" resultMap="TbPositionMap">
+        select
+        <include refid="baseResult"></include>
+        from `tb_position`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="ptNum != null and ptNum!=''">
+                `pt_num` = #{ptNum} and
+            </if>
+            <if test="ptName != null and ptName!=''">
+                `pt_name` = #{ptName} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbPosition$QueryBuilder) == true">
+                <if test="ptNumList != null">
+                    `pt_num` in
+                    <foreach collection="ptNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPtNum!=null and fuzzyPtNum.size()>0">
+                    (
+                    <foreach collection="fuzzyPtNum" separator="or" item="item">
+                        `Pt_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPtNum!=null and rightFuzzyPtNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPtNum" separator="or" item="item">
+                        `Pt_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ptNameList != null">
+                    `pt_name` in
+                    <foreach collection="ptNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPtName!=null and fuzzyPtName.size()>0">
+                    (
+                    <foreach collection="fuzzyPtName" separator="or" item="item">
+                        `Pt_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPtName!=null and rightFuzzyPtName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPtName" separator="or" item="item">
+                        `Pt_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+        limit 1
+    </select>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+            `pt_num`,
+            `pt_name`,
+        </trim>
+    </sql>
+
+
+    <sql id="baseResult">
+        <trim suffixOverrides=",">
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbPosition$QueryBuilder) == true">
+
+                <if test="fetchFields==null">
+                    <include refid="allResult"></include>
+                </if>
+                <if test="fetchFields!=null">
+                    <if test="fetchFields.AllFields !=null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields ==null and fetchFields.fetchFields==null and fetchFields.excludeFields==null and fetchFields.otherFields==null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.fetchFields!=null">
+                        <if test="fetchFields.fetchFields.ptNum==true">
+                            `pt_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ptName==true">
+                            `pt_name`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.excludeFields!=null">
+                        <if test="fetchFields.excludeFields.ptNum==null">
+                            `pt_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ptName==null">
+                            `pt_name`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.otherFields!=null and fetchFields.otherFields.size>0">
+                        <foreach collection="fetchFields.otherFields" index="index" item="item" separator=",">
+                            `#{item}`
+                        </foreach>
+                    </if>
+                </if>
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbPosition$QueryBuilder) == false">
+                <include refid="allResult"></include>
+            </if>
+
+        </trim>
+    </sql>
+
+
+</mapper>

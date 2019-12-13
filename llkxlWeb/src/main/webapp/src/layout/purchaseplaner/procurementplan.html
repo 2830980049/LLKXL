@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>采购计划</title>
+    <!-- 告诉浏览器响应屏幕宽度 -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link href="../../res/css/bootsrap.min.css" rel="stylesheet">
+    <!-- 象形异体字 -->
+    <link href="../../res/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 主题风格 -->
+    <link href="../../res/css/AdminLLKXL.min.css" rel="stylesheet">
+    <!-- 皮肤 -->
+    <link href="../../res/css/_all-skins.min.css" rel="stylesheet">
+    <!--谷歌字体 -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"
+          rel="stylesheet">
+    <!--导入vue.js有网的时候推荐-->
+    <script charset="UTF-8" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!--没网的时候-->
+    <!--script src="../../js/vue.js" type="text/javascript" charset="UTF-8"></script-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #mian-components {
+            align-content: center;
+            align-items: center;
+            text-align: center;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <header class="main-header">
+        <!-- Logo -->
+        <a class="logo" href="#">
+            <!-- 迷你标志为侧栏迷你50x50像素 -->
+            <span class="logo-mini"><b>L</b>B</span>
+            <!-- 常规状态和移动设备的徽标 -->
+            <span class="logo-lg">LLKXL智能制造系统</span>
+        </a>
+        <!-- 标题导航栏:样式可以在Header .less中找到 -->
+        <nav class="navbar navbar-static-top">
+            <!-- 侧边栏切换按钮-->
+            <a class="sidebar-toggle" data-toggle="push-menu" href="#" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- 用户帐号:风格可以在dropdown.less中找到 -->
+                    <li class="dropdown user user-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="hidden-xs">琳琳开心力</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <br><br>
+                                <p>
+                                    琳琳开心力 - web开发人员
+                                    <small>2019.11.1</small>
+                                </p>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- 左列。包含徽标和边栏 -->
+    <aside class="main-sidebar">
+        <!-- 侧栏:style可以在sidebar.less中找到 -->
+        <section class="sidebar">
+            <!-- 侧栏菜单::style可以在sidebar.less中找到-->
+            <ul class="sidebar-menu" data-widget="tree">
+                <li class="header">主要导航</li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-link"></i> <span>采购计划</span>
+                        <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+                    </a>
+                    <ul class="treeview-menu" style="display: none;">
+                        <li>
+                            <a href="materialsupplyprogrammaintenanceInterface.html">物资供应方案维护</a>
+                        </li>
+                        <li>
+                            <a href="purchaseplancheckandchangeInterface.html">采购计划查改界面</a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </section>
+        <!-- /.侧边栏描述 -->
+    </aside>
+
+    <!-- 内容包装器。包含页面内容 -->
+    <div class="content-wrapper">
+        <!-- 内容页眉(页眉） -->
+        <section class="content-header">
+        </section>
+        <!-- 主要内容 -->
+        <section class="content">
+            <!--采购计划示意图-->
+            <div id="mian-components">
+                <div>
+                    <!--按钮-->
+                    <div id="button-components" style="width: 1000px;margin-left: 350px;text-align: center;">
+                        <div aria-label="..." class="btn-group" role="group">
+                            <button @click="save" class="btn btn-default" style="margin-right: 30px;" type="button">保存
+                            </button>
+                            <button class="btn btn-default" style="margin-right: 30px;" type="button">退回</button>
+                            <button class="btn btn-default" style="margin-right: 30px;" type="button">提交</button>
+                            <button class="btn btn-default" onclick="window.location.href='purchaseplanprintpreviewandexportpage.html'" style="margin-right: 30px;"
+                                    type="button">打印
+                            </button>
+                            <button class="btn btn-default" style="margin-right: 30px;" type="button">导出</button>
+                            <button class="btn btn-default" style="margin-right: 30px;" type="button">关闭/退出</button>
+                        </div>
+                    </div>
+                    <hr style="width: 1890px;"/>
+                    <!--end按钮-->
+                    <!--信息输入-->
+                    <div class="row" id="input-components">
+                        <div style="width: 1000px;margin-left: 350px;text-align: center">
+                            <div style="float: right;">
+                                <span>采购计划名称<input type="text"/></span>
+                                <span style="margin-left: 30px;">采购计划编码<input readonly="readonly" type="text"/> </span>
+                                <span style="margin-left: 30px;">审批状态<input readonly="readonly" type="text"/></span>
+                                <span style="margin-left: 30px;">修改原因<input type="text"/></span>
+                            </div>
+                            <div style="margin: 30px 0px 30px 30px;float: right;">
+                                <span>制单人<input readonly="readonly" type="text"/></span>
+                                <span style="margin-left: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;制单时间<input
+                                        readonly="readonly" type="text"/></span>
+                                <span style="margin-left: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改人<input
+                                        readonly="readonly"
+                                        type="text"/></span>
+                                <span style="margin-left: 30px;">修改时间<input readonly="readonly" type="text"/> </span>
+                            </div>
+                        </div>
+                        <div style="width: 1000px;height: 1000px;margin-left: 350px;">
+                            <div style="float: right">
+                                <span>采购计划类型<input readonly="readonly" type="text"/></span>
+                            </div>
+                            <div style="width: 600px;">
+                                <table class="table table-striped">
+                                    <tr class="active">
+                                        <td class="active"></td>
+                                        <td class="active">审批人</td>
+                                        <td class="active">审批时间</td>
+                                        <td class="active">审批意见</td>
+                                        <td class="active">说明</td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td class="active">1</td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td class="active">2</td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td class="active">3</td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td class="active">4</td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                        <td class="active"><input placeholder="不可编辑" readonly="readonly"
+                                                                  style="width: 65px;"
+                                                                  type="text"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tr class="info">
+                                        <td class="info">行号</td>
+                                        <td class="info">物料分类编码</td>
+                                        <td class="info">物料分类名称</td>
+                                        <td class="info">物料编码</td>
+                                        <td class="info">物料名称</td>
+                                        <td class="info">规格</td>
+                                        <td class="info">型号</td>
+                                        <td class="info">单位</td>
+                                        <td class="info">需求月份</td>
+                                        <td class="info">货源是否确定</td>
+                                        <td class="info">固定供应商</td>
+                                        <td class="info">期望供应商</td>
+                                        <td class="info">所属需求部门</td>
+                                        <td class="info">所属需求计划编码</td>
+                                        <td class="info">采购数量</td>
+                                        <td class="info">采购日期</td>
+                                        <td class="info">计划来源</td>
+                                    </tr>
+                                    <tr class="info">
+                                        <td class="info">1</td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                        <td class="info"><input placeholder="不可编辑" readonly style="width: 65px;"
+                                                                type="text"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end信息输入-->
+
+                </div>
+            </div>
+            <!--/采购计划示意图-->
+        </section>
+        <!-- /.主要内容 -->
+    </div>
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 3.0.0
+        </div>
+        <strong>CRAETE TO 2019.11.1AdminLLKXL.</strong> 保留所有权
+    </footer>
+    <!-- ./包装器 -->
+    <!-- jQuery 3 -->
+    <script src="../../res/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../res/js/bootstrap.min.js"></script>
+    <!-- 侧栏打开/关闭代码 -->
+    <script src="../../res/js/adminllkxl.min.js"></script>
+</div>
+</body>
+</html>

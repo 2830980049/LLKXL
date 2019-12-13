@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisGeneratorConfiguration">
+    <option name="credentials">
+      <map>
+        <entry key="jdbc:mysql://39.106.152.196:3306/db_llkxl?characterEncoding=utf8&amp;serverTimezone=UTC">
+          <value>
+            <Credential>
+              <option name="username" value="root" />
+            </Credential>
+          </value>
+        </entry>
+        <entry key="jdbc:mysql://39.106.152.196:3306/db_llkxl?characterEncoding=utf8&amp;useUnicode=true&amp;serverTimezone=UTC">
+          <value>
+            <Credential>
+              <option name="username" value="root" />
+            </Credential>
+          </value>
+        </entry>
+        <entry key="jdbc:mysql://39.106.152.196:3306/db_llkxl?characterEncoding=utf8&amp;useUnicode=true&amp;useSSL=false&amp;serverTimezone=UTC">
+          <value>
+            <Credential>
+              <option name="username" value="root" />
+            </Credential>
+          </value>
+        </entry>
+        <entry key="jdbc:mysql://39.106.152.196:3306/db_llkxl?serverTimezone=UTC">
+          <value>
+            <Credential>
+              <option name="username" value="root" />
+            </Credential>
+          </value>
+        </entry>
+        <entry key="jdbc:mysql://39.106.152.196:3306/db_llkxl?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;serverTimezone=UTC">
+          <value>
+            <Credential>
+              <option name="username" value="root" />
+            </Credential>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="tableConfigs">
+      <map>
+        <entry key="tb_department">
+          <value>
+            <TableConfig>
+              <option name="basePackage" value="cn.edu.gues.mapper" />
+              <option name="comment" value="true" />
+              <option name="domainName" value="TbDepartment" />
+              <option name="domainPackage" value="cn.edu.gues.mapper.domain" />
+              <option name="exampleName" value="TbDepartmentExample" />
+              <option name="examplePackage" value="cn.edu.gues.mapper.example" />
+              <option name="examplePostfix" value="Example" />
+              <option name="mapperName" value="TbDepartmentMapper" />
+              <option name="mapperPackage" value="cn.edu.gues.mapper.mapper" />
+              <option name="mapperPostfix" value="Mapper" />
+              <option name="moduleRootPath" value="$PROJECT_DIR$" />
+              <option name="name" value="tb_department" />
+              <option name="primaryKey" value="dt_num" />
+              <option name="resourcePath" value="src/main/resources" />
+              <option name="sourcePath" value="src/main/java" />
+              <option name="tableName" value="tb_department" />
+              <option name="useExample" value="true" />
+              <option name="xmlPackage" value="mapper" />
+            </TableConfig>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

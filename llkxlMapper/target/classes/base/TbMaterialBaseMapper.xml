@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.gues.mapper.base.TbMaterialBaseMapper">
+
+    <insert id="insertTbMaterial">
+        INSERT INTO `tb_material`
+        (
+        <trim suffixOverrides=",">
+            <if test="mrNum!=null">
+                `mr_num`,
+            </if>
+            <if test="mrName!=null">
+                `mr_name`,
+            </if>
+            <if test="mrCfNum!=null">
+                `mr_cf_num`,
+            </if>
+            <if test="mrCfName!=null">
+                `mr_cf_name`,
+            </if>
+            <if test="specification!=null">
+                `specification`,
+            </if>
+            <if test="type!=null">
+                `type`,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+            <if test="mrNum!=null">
+                #{mrNum},
+            </if>
+            <if test="mrName!=null">
+                #{mrName},
+            </if>
+            <if test="mrCfNum!=null">
+                #{mrCfNum},
+            </if>
+            <if test="mrCfName!=null">
+                #{mrCfName},
+            </if>
+            <if test="specification!=null">
+                #{specification},
+            </if>
+            <if test="type!=null">
+                #{type},
+            </if>
+        </trim>
+        )
+    </insert>
+
+
+    <update id="updateTbMaterial">
+        UPDATE `tb_material`
+        SET
+        <trim suffixOverrides=",">
+            <if test="mrName != null and mrName!=''">
+                `mr_name` = #{mrName},
+            </if>
+            <if test="mrCfNum != null and mrCfNum!=''">
+                `mr_cf_num` = #{mrCfNum},
+            </if>
+            <if test="mrCfName != null and mrCfName!=''">
+                `mr_cf_name` = #{mrCfName},
+            </if>
+            <if test="specification != null and specification!=''">
+                `specification` = #{specification},
+            </if>
+            <if test="type != null and type!=''">
+                `type` = #{type},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+            `mr_num` = #{mrNum} and
+        </trim>
+    </update>
+
+    <update id="update">
+        UPDATE `tb_material`
+        SET
+        <trim suffixOverrides=",">
+            <if test="set.mrName != null and set.mrName!=''">
+                `mr_name` = #{set.mrName},
+            </if>
+            <if test="set.mrCfNum != null and set.mrCfNum!=''">
+                `mr_cf_num` = #{set.mrCfNum},
+            </if>
+            <if test="set.mrCfName != null and set.mrCfName!=''">
+                `mr_cf_name` = #{set.mrCfName},
+            </if>
+            <if test="set.specification != null and set.specification!=''">
+                `specification` = #{set.specification},
+            </if>
+            <if test="set.type != null and set.type!=''">
+                `type` = #{set.type},
+            </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="where.mrNumList != null">
+                `mr_num` in
+                <foreach collection="where.mrNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyMrNum!=null and where.fuzzyMrNum.size()>0">
+                (
+                <foreach collection="where.fuzzyMrNum" separator="or" item="item">
+                    `Mr_num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyMrNum!=null and where.rightFuzzyMrNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMrNum" separator="or" item="item">
+                    `Mr_num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.mrNameList != null">
+                `mr_name` in
+                <foreach collection="where.mrNameList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyMrName!=null and where.fuzzyMrName.size()>0">
+                (
+                <foreach collection="where.fuzzyMrName" separator="or" item="item">
+                    `Mr_name` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyMrName!=null and where.rightFuzzyMrName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMrName" separator="or" item="item">
+                    `Mr_name` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.mrCfNumList != null">
+                `mr_cf_num` in
+                <foreach collection="where.mrCfNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyMrCfNum!=null and where.fuzzyMrCfNum.size()>0">
+                (
+                <foreach collection="where.fuzzyMrCfNum" separator="or" item="item">
+                    `Mr_cf_num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyMrCfNum!=null and where.rightFuzzyMrCfNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMrCfNum" separator="or" item="item">
+                    `Mr_cf_num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.mrCfNameList != null">
+                `mr_cf_name` in
+                <foreach collection="where.mrCfNameList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyMrCfName!=null and where.fuzzyMrCfName.size()>0">
+                (
+                <foreach collection="where.fuzzyMrCfName" separator="or" item="item">
+                    `Mr_cf_name` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyMrCfName!=null and where.rightFuzzyMrCfName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMrCfName" separator="or" item="item">
+                    `Mr_cf_name` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.specificationList != null">
+                `specification` in
+                <foreach collection="where.specificationList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzySpecification!=null and where.fuzzySpecification.size()>0">
+                (
+                <foreach collection="where.fuzzySpecification" separator="or" item="item">
+                    `Specification` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzySpecification!=null and where.rightFuzzySpecification.size()>0">
+                (
+                <foreach collection="where.rightFuzzySpecification" separator="or" item="item">
+                    `Specification` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.typeList != null">
+                `type` in
+                <foreach collection="where.typeList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyType!=null and where.fuzzyType.size()>0">
+                (
+                <foreach collection="where.fuzzyType" separator="or" item="item">
+                    `Type` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyType!=null and where.rightFuzzyType.size()>0">
+                (
+                <foreach collection="where.rightFuzzyType" separator="or" item="item">
+                    `Type` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+        </trim>
+    </update>
+
+
+    <resultMap type="cn.edu.gues.pojo.TbMaterial" id="TbMaterialMap">
+        <result property="mrNum" column="mr_num"/>
+        <result property="mrName" column="mr_name"/>
+        <result property="mrCfNum" column="mr_cf_num"/>
+        <result property="mrCfName" column="mr_cf_name"/>
+        <result property="specification" column="specification"/>
+        <result property="type" column="type"/>
+    </resultMap>
+
+    <select id="findalls" resultType="cn.edu.gues.pojo.TbUnit">
+        select * from tb_unit
+    </select>
+
+    <select id="findsupply" resultType="cn.edu.gues.pojo.Tbsupply">
+        select * from tb_supply
+    </select>
+    
+    <select id="queryTbMaterial" resultMap="TbMaterialMap">
+        select
+        <include refid="baseResult"></include>
+        from `tb_material`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="mrNum != null and mrNum!=''">
+                `mr_num` = #{mrNum} and
+            </if>
+            <if test="mrName != null and mrName!=''">
+                `mr_name` = #{mrName} and
+            </if>
+            <if test="mrCfNum != null and mrCfNum!=''">
+                `mr_cf_num` = #{mrCfNum} and
+            </if>
+            <if test="mrCfName != null and mrCfName!=''">
+                `mr_cf_name` = #{mrCfName} and
+            </if>
+            <if test="specification != null and specification!=''">
+                `specification` = #{specification} and
+            </if>
+            <if test="type != null and type!=''">
+                `type` = #{type} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbMaterial$QueryBuilder) == true">
+                <if test="mrNumList != null">
+                    `mr_num` in
+                    <foreach collection="mrNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrNum!=null and fuzzyMrNum.size()>0">
+                    (
+                    <foreach collection="fuzzyMrNum" separator="or" item="item">
+                        `Mr_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrNum!=null and rightFuzzyMrNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrNum" separator="or" item="item">
+                        `Mr_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrNameList != null">
+                    `mr_name` in
+                    <foreach collection="mrNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrName!=null and fuzzyMrName.size()>0">
+                    (
+                    <foreach collection="fuzzyMrName" separator="or" item="item">
+                        `Mr_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrName!=null and rightFuzzyMrName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrName" separator="or" item="item">
+                        `Mr_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrCfNumList != null">
+                    `mr_cf_num` in
+                    <foreach collection="mrCfNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrCfNum!=null and fuzzyMrCfNum.size()>0">
+                    (
+                    <foreach collection="fuzzyMrCfNum" separator="or" item="item">
+                        `Mr_cf_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrCfNum!=null and rightFuzzyMrCfNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrCfNum" separator="or" item="item">
+                        `Mr_cf_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrCfNameList != null">
+                    `mr_cf_name` in
+                    <foreach collection="mrCfNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrCfName!=null and fuzzyMrCfName.size()>0">
+                    (
+                    <foreach collection="fuzzyMrCfName" separator="or" item="item">
+                        `Mr_cf_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrCfName!=null and rightFuzzyMrCfName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrCfName" separator="or" item="item">
+                        `Mr_cf_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="specificationList != null">
+                    `specification` in
+                    <foreach collection="specificationList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzySpecification!=null and fuzzySpecification.size()>0">
+                    (
+                    <foreach collection="fuzzySpecification" separator="or" item="item">
+                        `Specification` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzySpecification!=null and rightFuzzySpecification.size()>0">
+                    (
+                    <foreach collection="rightFuzzySpecification" separator="or" item="item">
+                        `Specification` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="typeList != null">
+                    `type` in
+                    <foreach collection="typeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyType!=null and fuzzyType.size()>0">
+                    (
+                    <foreach collection="fuzzyType" separator="or" item="item">
+                        `Type` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyType!=null and rightFuzzyType.size()>0">
+                    (
+                    <foreach collection="rightFuzzyType" separator="or" item="item">
+                        `Type` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryTbMaterialLimit1" resultMap="TbMaterialMap">
+        select
+        <include refid="baseResult"></include>
+        from `tb_material`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="mrNum != null and mrNum!=''">
+                `mr_num` = #{mrNum} and
+            </if>
+            <if test="mrName != null and mrName!=''">
+                `mr_name` = #{mrName} and
+            </if>
+            <if test="mrCfNum != null and mrCfNum!=''">
+                `mr_cf_num` = #{mrCfNum} and
+            </if>
+            <if test="mrCfName != null and mrCfName!=''">
+                `mr_cf_name` = #{mrCfName} and
+            </if>
+            <if test="specification != null and specification!=''">
+                `specification` = #{specification} and
+            </if>
+            <if test="type != null and type!=''">
+                `type` = #{type} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbMaterial$QueryBuilder) == true">
+                <if test="mrNumList != null">
+                    `mr_num` in
+                    <foreach collection="mrNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrNum!=null and fuzzyMrNum.size()>0">
+                    (
+                    <foreach collection="fuzzyMrNum" separator="or" item="item">
+                        `Mr_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrNum!=null and rightFuzzyMrNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrNum" separator="or" item="item">
+                        `Mr_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrNameList != null">
+                    `mr_name` in
+                    <foreach collection="mrNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrName!=null and fuzzyMrName.size()>0">
+                    (
+                    <foreach collection="fuzzyMrName" separator="or" item="item">
+                        `Mr_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrName!=null and rightFuzzyMrName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrName" separator="or" item="item">
+                        `Mr_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrCfNumList != null">
+                    `mr_cf_num` in
+                    <foreach collection="mrCfNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrCfNum!=null and fuzzyMrCfNum.size()>0">
+                    (
+                    <foreach collection="fuzzyMrCfNum" separator="or" item="item">
+                        `Mr_cf_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrCfNum!=null and rightFuzzyMrCfNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrCfNum" separator="or" item="item">
+                        `Mr_cf_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mrCfNameList != null">
+                    `mr_cf_name` in
+                    <foreach collection="mrCfNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMrCfName!=null and fuzzyMrCfName.size()>0">
+                    (
+                    <foreach collection="fuzzyMrCfName" separator="or" item="item">
+                        `Mr_cf_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMrCfName!=null and rightFuzzyMrCfName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMrCfName" separator="or" item="item">
+                        `Mr_cf_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="specificationList != null">
+                    `specification` in
+                    <foreach collection="specificationList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzySpecification!=null and fuzzySpecification.size()>0">
+                    (
+                    <foreach collection="fuzzySpecification" separator="or" item="item">
+                        `Specification` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzySpecification!=null and rightFuzzySpecification.size()>0">
+                    (
+                    <foreach collection="rightFuzzySpecification" separator="or" item="item">
+                        `Specification` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="typeList != null">
+                    `type` in
+                    <foreach collection="typeList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyType!=null and fuzzyType.size()>0">
+                    (
+                    <foreach collection="fuzzyType" separator="or" item="item">
+                        `Type` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyType!=null and rightFuzzyType.size()>0">
+                    (
+                    <foreach collection="rightFuzzyType" separator="or" item="item">
+                        `Type` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+        limit 1
+    </select>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+            `mr_num`,
+            `mr_name`,
+            `mr_cf_num`,
+            `mr_cf_name`,
+            `specification`,
+            `type`,
+        </trim>
+    </sql>
+
+
+    <sql id="baseResult">
+        <trim suffixOverrides=",">
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbMaterial$QueryBuilder) == true">
+
+                <if test="fetchFields==null">
+                    <include refid="allResult"></include>
+                </if>
+                <if test="fetchFields!=null">
+                    <if test="fetchFields.AllFields !=null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields ==null and fetchFields.fetchFields==null and fetchFields.excludeFields==null and fetchFields.otherFields==null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.fetchFields!=null">
+                        <if test="fetchFields.fetchFields.mrNum==true">
+                            `mr_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.mrName==true">
+                            `mr_name`,
+                        </if>
+                        <if test="fetchFields.fetchFields.mrCfNum==true">
+                            `mr_cf_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.mrCfName==true">
+                            `mr_cf_name`,
+                        </if>
+                        <if test="fetchFields.fetchFields.specification==true">
+                            `specification`,
+                        </if>
+                        <if test="fetchFields.fetchFields.type==true">
+                            `type`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.excludeFields!=null">
+                        <if test="fetchFields.excludeFields.mrNum==null">
+                            `mr_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.mrName==null">
+                            `mr_name`,
+                        </if>
+                        <if test="fetchFields.excludeFields.mrCfNum==null">
+                            `mr_cf_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.mrCfName==null">
+                            `mr_cf_name`,
+                        </if>
+                        <if test="fetchFields.excludeFields.specification==null">
+                            `specification`,
+                        </if>
+                        <if test="fetchFields.excludeFields.type==null">
+                            `type`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.otherFields!=null and fetchFields.otherFields.size>0">
+                        <foreach collection="fetchFields.otherFields" index="index" item="item" separator=",">
+                            `#{item}`
+                        </foreach>
+                    </if>
+                </if>
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbMaterial$QueryBuilder) == false">
+                <include refid="allResult"></include>
+            </if>
+
+        </trim>
+    </sql>
+
+
+</mapper>

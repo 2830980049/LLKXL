@@ -1,0 +1,1006 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.gues.mapper.base.TbStaffBaseMapper">
+
+
+    <!--    插入数据 -->
+    <!--    插入数据 -->
+
+    <insert id="insertTbStaff">
+        INSERT INTO `tb_staff`
+        (
+        <trim suffixOverrides=",">
+            <if test="loginName!=null">
+                `login_name`,
+            </if>
+            <if test="password!=null">
+                `password`,
+            </if>
+            <if test="realName!=null">
+                `real_name`,
+            </if>
+            <if test="dtNum!=null">
+                `dt_num`,
+            </if>
+            <if test="ptNum!=null">
+                `pt_num`,
+            </if>
+            <if test="ftPhone!=null">
+                `ft_phone`,
+            </if>
+            <if test="cpMail!=null">
+                `cp_mail`,
+            </if>
+            <if test="otherMail!=null">
+                `other_mail`,
+            </if>
+            <if test="qqNumber!=null">
+                `qq_number`,
+            </if>
+            <if test="mbPhone!=null">
+                `mb_phone`,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+            <if test="loginName!=null">
+                #{loginName},
+            </if>
+            <if test="password!=null">
+                #{password},
+            </if>
+            <if test="realName!=null">
+                #{realName},
+            </if>
+            <if test="dtNum!=null">
+                #{dtNum},
+            </if>
+            <if test="ptNum!=null">
+                #{ptNum},
+            </if>
+            <if test="ftPhone!=null">
+                #{ftPhone},
+            </if>
+            <if test="cpMail!=null">
+                #{cpMail},
+            </if>
+            <if test="otherMail!=null">
+                #{otherMail},
+            </if>
+            <if test="qqNumber!=null">
+                #{qqNumber},
+            </if>
+            <if test="mbPhone!=null">
+                #{mbPhone},
+            </if>
+        </trim>
+        )
+    </insert>
+
+    <!--    更新所有 -->
+
+    <update id="updateTbStaff">
+        UPDATE `tb_staff`
+        SET
+        <trim suffixOverrides=",">
+            <if test="password != null and password!=''">
+                `password` = #{password},
+            </if>
+            <if test="realName != null and realName!=''">
+                `real_name` = #{realName},
+            </if>
+            <if test="dtNum != null and dtNum!=''">
+                `dt_num` = #{dtNum},
+            </if>
+            <if test="ptNum != null and ptNum!=''">
+                `pt_num` = #{ptNum},
+            </if>
+            <if test="ftPhone != null and ftPhone!=''">
+                `ft_phone` = #{ftPhone},
+            </if>
+            <if test="cpMail != null and cpMail!=''">
+                `cp_mail` = #{cpMail},
+            </if>
+            <if test="otherMail != null and otherMail!=''">
+                `other_mail` = #{otherMail},
+            </if>
+            <if test="qqNumber != null and qqNumber!=''">
+                `qq_number` = #{qqNumber},
+            </if>
+            <if test="mbPhone != null and mbPhone!=''">
+                `mb_phone` = #{mbPhone},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+            `login_name` = #{loginName} and
+        </trim>
+    </update>
+
+    <!--   按条件更新  -->
+
+    <update id="update">
+        UPDATE `tb_staff`
+        SET
+        <trim suffixOverrides=",">
+            <if test="set.password != null and set.password!=''">
+                `password` = #{set.password},
+            </if>
+            <if test="set.realName != null and set.realName!=''">
+                `real_name` = #{set.realName},
+            </if>
+            <if test="set.dtNum != null and set.dtNum!=''">
+                `dt_num` = #{set.dtNum},
+            </if>
+            <if test="set.ptNum != null and set.ptNum!=''">
+                `pt_num` = #{set.ptNum},
+            </if>
+            <if test="set.ftPhone != null and set.ftPhone!=''">
+                `ft_phone` = #{set.ftPhone},
+            </if>
+            <if test="set.cpMail != null and set.cpMail!=''">
+                `cp_mail` = #{set.cpMail},
+            </if>
+            <if test="set.otherMail != null and set.otherMail!=''">
+                `other_mail` = #{set.otherMail},
+            </if>
+            <if test="set.qqNumber != null and set.qqNumber!=''">
+                `qq_number` = #{set.qqNumber},
+            </if>
+            <if test="set.mbPhone != null and set.mbPhone!=''">
+                `mb_phone` = #{set.mbPhone},
+            </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="where.loginNameList != null">
+                `login_name` in
+                <foreach collection="where.loginNameList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyLoginName!=null and where.fuzzyLoginName.size()>0">
+                (
+                <foreach collection="where.fuzzyLoginName" separator="or" item="item">
+                    `Login_name` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyLoginName!=null and where.rightFuzzyLoginName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyLoginName" separator="or" item="item">
+                    `Login_name` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.passwordList != null">
+                `password` in
+                <foreach collection="where.passwordList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyPassword!=null and where.fuzzyPassword.size()>0">
+                (
+                <foreach collection="where.fuzzyPassword" separator="or" item="item">
+                    `Password` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyPassword!=null and where.rightFuzzyPassword.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPassword" separator="or" item="item">
+                    `Password` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.realNameList != null">
+                `real_name` in
+                <foreach collection="where.realNameList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyRealName!=null and where.fuzzyRealName.size()>0">
+                (
+                <foreach collection="where.fuzzyRealName" separator="or" item="item">
+                    `Real_name` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyRealName!=null and where.rightFuzzyRealName.size()>0">
+                (
+                <foreach collection="where.rightFuzzyRealName" separator="or" item="item">
+                    `Real_name` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.dtNumList != null">
+                `dt_num` in
+                <foreach collection="where.dtNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyDtNum!=null and where.fuzzyDtNum.size()>0">
+                (
+                <foreach collection="where.fuzzyDtNum" separator="or" item="item">
+                    `Dt_num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyDtNum!=null and where.rightFuzzyDtNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyDtNum" separator="or" item="item">
+                    `Dt_num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.ptNumList != null">
+                `pt_num` in
+                <foreach collection="where.ptNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyPtNum!=null and where.fuzzyPtNum.size()>0">
+                (
+                <foreach collection="where.fuzzyPtNum" separator="or" item="item">
+                    `Pt_num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyPtNum!=null and where.rightFuzzyPtNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyPtNum" separator="or" item="item">
+                    `Pt_num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.ftPhoneList != null">
+                `ft_phone` in
+                <foreach collection="where.ftPhoneList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyFtPhone!=null and where.fuzzyFtPhone.size()>0">
+                (
+                <foreach collection="where.fuzzyFtPhone" separator="or" item="item">
+                    `Ft_phone` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyFtPhone!=null and where.rightFuzzyFtPhone.size()>0">
+                (
+                <foreach collection="where.rightFuzzyFtPhone" separator="or" item="item">
+                    `Ft_phone` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.cpMailList != null">
+                `cp_mail` in
+                <foreach collection="where.cpMailList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyCpMail!=null and where.fuzzyCpMail.size()>0">
+                (
+                <foreach collection="where.fuzzyCpMail" separator="or" item="item">
+                    `Cp_mail` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyCpMail!=null and where.rightFuzzyCpMail.size()>0">
+                (
+                <foreach collection="where.rightFuzzyCpMail" separator="or" item="item">
+                    `Cp_mail` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.otherMailList != null">
+                `other_mail` in
+                <foreach collection="where.otherMailList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyOtherMail!=null and where.fuzzyOtherMail.size()>0">
+                (
+                <foreach collection="where.fuzzyOtherMail" separator="or" item="item">
+                    `Other_mail` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyOtherMail!=null and where.rightFuzzyOtherMail.size()>0">
+                (
+                <foreach collection="where.rightFuzzyOtherMail" separator="or" item="item">
+                    `Other_mail` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.qqNumberList != null">
+                `qq_number` in
+                <foreach collection="where.qqNumberList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyQqNumber!=null and where.fuzzyQqNumber.size()>0">
+                (
+                <foreach collection="where.fuzzyQqNumber" separator="or" item="item">
+                    `Qq_number` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyQqNumber!=null and where.rightFuzzyQqNumber.size()>0">
+                (
+                <foreach collection="where.rightFuzzyQqNumber" separator="or" item="item">
+                    `Qq_number` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.mbPhoneList != null">
+                `mb_phone` in
+                <foreach collection="where.mbPhoneList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyMbPhone!=null and where.fuzzyMbPhone.size()>0">
+                (
+                <foreach collection="where.fuzzyMbPhone" separator="or" item="item">
+                    `Mb_phone` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyMbPhone!=null and where.rightFuzzyMbPhone.size()>0">
+                (
+                <foreach collection="where.rightFuzzyMbPhone" separator="or" item="item">
+                    `Mb_phone` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+        </trim>
+    </update>
+
+    <delete id="deletes" parameterType="String">
+        delete from tb_staff where login_name = #{loginName};
+    </delete>
+
+    <resultMap type="cn.edu.gues.pojo.TbStaff" id="TbStaffMap">
+        <result property="loginName" column="login_name"/>
+        <result property="password" column="password"/>
+        <result property="realName" column="real_name"/>
+        <result property="dtNum" column="dt_num"/>
+        <result property="ptNum" column="pt_num"/>
+        <result property="ftPhone" column="ft_phone"/>
+        <result property="cpMail" column="cp_mail"/>
+        <result property="otherMail" column="other_mail"/>
+        <result property="qqNumber" column="qq_number"/>
+        <result property="mbPhone" column="mb_phone"/>
+        <result property="dt_name" column="dt_name"/>
+        <result property="pt_name" column="pt_name"/>
+    </resultMap>
+
+    <select id="queryTbDP"  resultMap="TbStaffMap">
+        select tb_position.pt_num ,tb_department.dt_num from tb_position ,tb_department where tb_position.pt_name = #{pt_name} and tb_department.dt_name = #{dt_name};
+    </select>
+
+    <!--   -->
+    <select id="queryTbStaff" resultMap="TbStaffMap">
+        select
+        <include refid="baseResult"/>
+        from `tb_staff`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="loginName != null and loginName!=''">
+                `login_name` = #{loginName} and
+            </if>
+            <if test="password != null and password!=''">
+                `password` = #{password} and
+            </if>
+            <if test="realName != null and realName!=''">
+                `real_name` = #{realName} and
+            </if>
+            <if test="dtNum != null and dtNum!=''">
+                `dt_num` = #{dtNum} and
+            </if>
+            <if test="ptNum != null and ptNum!=''">
+                `pt_num` = #{ptNum} and
+            </if>
+            <if test="ftPhone != null and ftPhone!=''">
+                `ft_phone` = #{ftPhone} and
+            </if>
+            <if test="cpMail != null and cpMail!=''">
+                `cp_mail` = #{cpMail} and
+            </if>
+            <if test="otherMail != null and otherMail!=''">
+                `other_mail` = #{otherMail} and
+            </if>
+            <if test="qqNumber != null and qqNumber!=''">
+                `qq_number` = #{qqNumber} and
+            </if>
+            <if test="mbPhone != null and mbPhone!=''">
+                `mb_phone` = #{mbPhone} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbStaff$QueryBuilder) == true">
+                <if test="loginNameList != null">
+                    `login_name` in
+                    <foreach collection="loginNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyLoginName!=null and fuzzyLoginName.size()>0">
+                    (
+                    <foreach collection="fuzzyLoginName" separator="or" item="item">
+                        `Login_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyLoginName!=null and rightFuzzyLoginName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyLoginName" separator="or" item="item">
+                        `Login_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="passwordList != null">
+                    `password` in
+                    <foreach collection="passwordList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPassword!=null and fuzzyPassword.size()>0">
+                    (
+                    <foreach collection="fuzzyPassword" separator="or" item="item">
+                        `Password` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPassword!=null and rightFuzzyPassword.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPassword" separator="or" item="item">
+                        `Password` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="realNameList != null">
+                    `real_name` in
+                    <foreach collection="realNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyRealName!=null and fuzzyRealName.size()>0">
+                    (
+                    <foreach collection="fuzzyRealName" separator="or" item="item">
+                        `Real_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyRealName!=null and rightFuzzyRealName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyRealName" separator="or" item="item">
+                        `Real_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="dtNumList != null">
+                    `dt_num` in
+                    <foreach collection="dtNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyDtNum!=null and fuzzyDtNum.size()>0">
+                    (
+                    <foreach collection="fuzzyDtNum" separator="or" item="item">
+                        `Dt_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyDtNum!=null and rightFuzzyDtNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyDtNum" separator="or" item="item">
+                        `Dt_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ptNumList != null">
+                    `pt_num` in
+                    <foreach collection="ptNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPtNum!=null and fuzzyPtNum.size()>0">
+                    (
+                    <foreach collection="fuzzyPtNum" separator="or" item="item">
+                        `Pt_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPtNum!=null and rightFuzzyPtNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPtNum" separator="or" item="item">
+                        `Pt_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ftPhoneList != null">
+                    `ft_phone` in
+                    <foreach collection="ftPhoneList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyFtPhone!=null and fuzzyFtPhone.size()>0">
+                    (
+                    <foreach collection="fuzzyFtPhone" separator="or" item="item">
+                        `Ft_phone` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyFtPhone!=null and rightFuzzyFtPhone.size()>0">
+                    (
+                    <foreach collection="rightFuzzyFtPhone" separator="or" item="item">
+                        `Ft_phone` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="cpMailList != null">
+                    `cp_mail` in
+                    <foreach collection="cpMailList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyCpMail!=null and fuzzyCpMail.size()>0">
+                    (
+                    <foreach collection="fuzzyCpMail" separator="or" item="item">
+                        `Cp_mail` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyCpMail!=null and rightFuzzyCpMail.size()>0">
+                    (
+                    <foreach collection="rightFuzzyCpMail" separator="or" item="item">
+                        `Cp_mail` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="otherMailList != null">
+                    `other_mail` in
+                    <foreach collection="otherMailList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyOtherMail!=null and fuzzyOtherMail.size()>0">
+                    (
+                    <foreach collection="fuzzyOtherMail" separator="or" item="item">
+                        `Other_mail` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyOtherMail!=null and rightFuzzyOtherMail.size()>0">
+                    (
+                    <foreach collection="rightFuzzyOtherMail" separator="or" item="item">
+                        `Other_mail` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="qqNumberList != null">
+                    `qq_number` in
+                    <foreach collection="qqNumberList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyQqNumber!=null and fuzzyQqNumber.size()>0">
+                    (
+                    <foreach collection="fuzzyQqNumber" separator="or" item="item">
+                        `Qq_number` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyQqNumber!=null and rightFuzzyQqNumber.size()>0">
+                    (
+                    <foreach collection="rightFuzzyQqNumber" separator="or" item="item">
+                        `Qq_number` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mbPhoneList != null">
+                    `mb_phone` in
+                    <foreach collection="mbPhoneList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMbPhone!=null and fuzzyMbPhone.size()>0">
+                    (
+                    <foreach collection="fuzzyMbPhone" separator="or" item="item">
+                        `Mb_phone` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMbPhone!=null and rightFuzzyMbPhone.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMbPhone" separator="or" item="item">
+                        `Mb_phone` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryTbStaffLimit1" resultMap="TbStaffMap">
+        select
+        <include refid="baseResult"/>
+        from `tb_staff`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="loginName != null and loginName!=''">
+                `login_name` = #{loginName} and
+            </if>
+            <if test="password != null and password!=''">
+                `password` = #{password} and
+            </if>
+            <if test="realName != null and realName!=''">
+                `real_name` = #{realName} and
+            </if>
+            <if test="dtNum != null and dtNum!=''">
+                `dt_num` = #{dtNum} and
+            </if>
+            <if test="ptNum != null and ptNum!=''">
+                `pt_num` = #{ptNum} and
+            </if>
+            <if test="ftPhone != null and ftPhone!=''">
+                `ft_phone` = #{ftPhone} and
+            </if>
+            <if test="cpMail != null and cpMail!=''">
+                `cp_mail` = #{cpMail} and
+            </if>
+            <if test="otherMail != null and otherMail!=''">
+                `other_mail` = #{otherMail} and
+            </if>
+            <if test="qqNumber != null and qqNumber!=''">
+                `qq_number` = #{qqNumber} and
+            </if>
+            <if test="mbPhone != null and mbPhone!=''">
+                `mb_phone` = #{mbPhone} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbStaff$QueryBuilder) == true">
+                <if test="loginNameList != null">
+                    `login_name` in
+                    <foreach collection="loginNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyLoginName!=null and fuzzyLoginName.size()>0">
+                    (
+                    <foreach collection="fuzzyLoginName" separator="or" item="item">
+                        `Login_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyLoginName!=null and rightFuzzyLoginName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyLoginName" separator="or" item="item">
+                        `Login_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="passwordList != null">
+                    `password` in
+                    <foreach collection="passwordList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPassword!=null and fuzzyPassword.size()>0">
+                    (
+                    <foreach collection="fuzzyPassword" separator="or" item="item">
+                        `Password` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPassword!=null and rightFuzzyPassword.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPassword" separator="or" item="item">
+                        `Password` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="realNameList != null">
+                    `real_name` in
+                    <foreach collection="realNameList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyRealName!=null and fuzzyRealName.size()>0">
+                    (
+                    <foreach collection="fuzzyRealName" separator="or" item="item">
+                        `Real_name` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyRealName!=null and rightFuzzyRealName.size()>0">
+                    (
+                    <foreach collection="rightFuzzyRealName" separator="or" item="item">
+                        `Real_name` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="dtNumList != null">
+                    `dt_num` in
+                    <foreach collection="dtNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyDtNum!=null and fuzzyDtNum.size()>0">
+                    (
+                    <foreach collection="fuzzyDtNum" separator="or" item="item">
+                        `Dt_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyDtNum!=null and rightFuzzyDtNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyDtNum" separator="or" item="item">
+                        `Dt_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ptNumList != null">
+                    `pt_num` in
+                    <foreach collection="ptNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyPtNum!=null and fuzzyPtNum.size()>0">
+                    (
+                    <foreach collection="fuzzyPtNum" separator="or" item="item">
+                        `Pt_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyPtNum!=null and rightFuzzyPtNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyPtNum" separator="or" item="item">
+                        `Pt_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ftPhoneList != null">
+                    `ft_phone` in
+                    <foreach collection="ftPhoneList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyFtPhone!=null and fuzzyFtPhone.size()>0">
+                    (
+                    <foreach collection="fuzzyFtPhone" separator="or" item="item">
+                        `Ft_phone` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyFtPhone!=null and rightFuzzyFtPhone.size()>0">
+                    (
+                    <foreach collection="rightFuzzyFtPhone" separator="or" item="item">
+                        `Ft_phone` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="cpMailList != null">
+                    `cp_mail` in
+                    <foreach collection="cpMailList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyCpMail!=null and fuzzyCpMail.size()>0">
+                    (
+                    <foreach collection="fuzzyCpMail" separator="or" item="item">
+                        `Cp_mail` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyCpMail!=null and rightFuzzyCpMail.size()>0">
+                    (
+                    <foreach collection="rightFuzzyCpMail" separator="or" item="item">
+                        `Cp_mail` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="otherMailList != null">
+                    `other_mail` in
+                    <foreach collection="otherMailList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyOtherMail!=null and fuzzyOtherMail.size()>0">
+                    (
+                    <foreach collection="fuzzyOtherMail" separator="or" item="item">
+                        `Other_mail` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyOtherMail!=null and rightFuzzyOtherMail.size()>0">
+                    (
+                    <foreach collection="rightFuzzyOtherMail" separator="or" item="item">
+                        `Other_mail` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="qqNumberList != null">
+                    `qq_number` in
+                    <foreach collection="qqNumberList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyQqNumber!=null and fuzzyQqNumber.size()>0">
+                    (
+                    <foreach collection="fuzzyQqNumber" separator="or" item="item">
+                        `Qq_number` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyQqNumber!=null and rightFuzzyQqNumber.size()>0">
+                    (
+                    <foreach collection="rightFuzzyQqNumber" separator="or" item="item">
+                        `Qq_number` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="mbPhoneList != null">
+                    `mb_phone` in
+                    <foreach collection="mbPhoneList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyMbPhone!=null and fuzzyMbPhone.size()>0">
+                    (
+                    <foreach collection="fuzzyMbPhone" separator="or" item="item">
+                        `Mb_phone` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyMbPhone!=null and rightFuzzyMbPhone.size()>0">
+                    (
+                    <foreach collection="rightFuzzyMbPhone" separator="or" item="item">
+                        `Mb_phone` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+            </if>
+        </trim>
+        limit 1
+    </select>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+            `login_name`,
+            `password`,
+            `real_name`,
+            `dt_num`,
+            `pt_num`,
+            `ft_phone`,
+            `cp_mail`,
+            `other_mail`,
+            `qq_number`,
+            `mb_phone`,
+        </trim>
+    </sql>
+
+
+    <sql id="baseResult">
+        <trim suffixOverrides=",">
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbStaff$QueryBuilder) == true">
+
+                <if test="fetchFields==null">
+                    <include refid="allResult"/>
+                </if>
+                <if test="fetchFields!=null">
+                    <if test="fetchFields.AllFields !=null">
+                        <include refid="allResult"/>
+                    </if>
+                    <if test="fetchFields.AllFields ==null and fetchFields.fetchFields==null and fetchFields.excludeFields==null and fetchFields.otherFields==null">
+                        <include refid="allResult"/>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.fetchFields!=null">
+                        <if test="fetchFields.fetchFields.loginName==true">
+                            `login_name`,
+                        </if>
+                        <if test="fetchFields.fetchFields.password==true">
+                            `password`,
+                        </if>
+                        <if test="fetchFields.fetchFields.realName==true">
+                            `real_name`,
+                        </if>
+                        <if test="fetchFields.fetchFields.dtNum==true">
+                            `dt_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ptNum==true">
+                            `pt_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ftPhone==true">
+                            `ft_phone`,
+                        </if>
+                        <if test="fetchFields.fetchFields.cpMail==true">
+                            `cp_mail`,
+                        </if>
+                        <if test="fetchFields.fetchFields.otherMail==true">
+                            `other_mail`,
+                        </if>
+                        <if test="fetchFields.fetchFields.qqNumber==true">
+                            `qq_number`,
+                        </if>
+                        <if test="fetchFields.fetchFields.mbPhone==true">
+                            `mb_phone`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.excludeFields!=null">
+                        <if test="fetchFields.excludeFields.loginName==null">
+                            `login_name`,
+                        </if>
+                        <if test="fetchFields.excludeFields.password==null">
+                            `password`,
+                        </if>
+                        <if test="fetchFields.excludeFields.realName==null">
+                            `real_name`,
+                        </if>
+                        <if test="fetchFields.excludeFields.dtNum==null">
+                            `dt_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ptNum==null">
+                            `pt_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ftPhone==null">
+                            `ft_phone`,
+                        </if>
+                        <if test="fetchFields.excludeFields.cpMail==null">
+                            `cp_mail`,
+                        </if>
+                        <if test="fetchFields.excludeFields.otherMail==null">
+                            `other_mail`,
+                        </if>
+                        <if test="fetchFields.excludeFields.qqNumber==null">
+                            `qq_number`,
+                        </if>
+                        <if test="fetchFields.excludeFields.mbPhone==null">
+                            `mb_phone`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.otherFields!=null and fetchFields.otherFields.size>0">
+                        <foreach collection="fetchFields.otherFields" index="index" item="item" separator=",">
+                            `#{item}`
+                        </foreach>
+                    </if>
+                </if>
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbStaff$QueryBuilder) == false">
+                <include refid="allResult"></include>
+            </if>
+
+        </trim>
+    </sql>
+
+
+</mapper>

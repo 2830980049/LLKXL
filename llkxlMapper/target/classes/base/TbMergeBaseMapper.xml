@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.gues.mapper.base.TbMergeBaseMapper">
+
+
+    <insert id="insertTbMerge">
+        INSERT INTO `tb_merge`
+        (
+        <trim suffixOverrides=",">
+            <if test="num!=null">
+                `num`,
+            </if>
+            <if test="recordNum!=null">
+                `record_num`,
+            </if>
+            <if test="ynMrNum!=null">
+                `yn_mr_num`,
+            </if>
+            <if test="ynNdMonth!=null">
+                `yn_nd_month`,
+            </if>
+            <if test="ynWtSupply!=null">
+                `yn_wt_supply`,
+            </if>
+            <if test="ynFtSupply!=null">
+                `yn_ft_supply`,
+            </if>
+        </trim>
+        )
+        VALUES
+        (
+        <trim suffixOverrides=",">
+            <if test="num!=null">
+                #{num},
+            </if>
+            <if test="recordNum!=null">
+                #{recordNum},
+            </if>
+            <if test="ynMrNum!=null">
+                #{ynMrNum},
+            </if>
+            <if test="ynNdMonth!=null">
+                #{ynNdMonth},
+            </if>
+            <if test="ynWtSupply!=null">
+                #{ynWtSupply},
+            </if>
+            <if test="ynFtSupply!=null">
+                #{ynFtSupply},
+            </if>
+        </trim>
+        )
+    </insert>
+
+
+    <update id="updateTbMerge">
+        UPDATE `tb_merge`
+        SET
+        <trim suffixOverrides=",">
+            <if test="recordNum != null and recordNum!=''">
+                `record_num` = #{recordNum},
+            </if>
+            <if test="ynMrNum != null">
+                `yn_mr_num` = #{ynMrNum},
+            </if>
+            <if test="ynNdMonth != null">
+                `yn_nd_month` = #{ynNdMonth},
+            </if>
+            <if test="ynWtSupply != null">
+                `yn_wt_supply` = #{ynWtSupply},
+            </if>
+            <if test="ynFtSupply != null">
+                `yn_ft_supply` = #{ynFtSupply},
+            </if>
+        </trim>
+        WHERE
+        <trim suffixOverrides="and">
+            `num` = #{num} and
+        </trim>
+    </update>
+
+    <update id="update">
+        UPDATE `tb_merge`
+        SET
+        <trim suffixOverrides=",">
+            <if test="set.recordNum != null and set.recordNum!=''">
+                `record_num` = #{set.recordNum},
+            </if>
+            <if test="set.ynMrNum != null">
+                `yn_mr_num` = #{set.ynMrNum},
+            </if>
+            <if test="set.ynNdMonth != null">
+                `yn_nd_month` = #{set.ynNdMonth},
+            </if>
+            <if test="set.ynWtSupply != null">
+                `yn_wt_supply` = #{set.ynWtSupply},
+            </if>
+            <if test="set.ynFtSupply != null">
+                `yn_ft_supply` = #{set.ynFtSupply},
+            </if>
+        </trim>
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="where.numList != null">
+                `num` in
+                <foreach collection="where.numList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyNum!=null and where.fuzzyNum.size()>0">
+                (
+                <foreach collection="where.fuzzyNum" separator="or" item="item">
+                    `Num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyNum!=null and where.rightFuzzyNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyNum" separator="or" item="item">
+                    `Num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.recordNumList != null">
+                `record_num` in
+                <foreach collection="where.recordNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.fuzzyRecordNum!=null and where.fuzzyRecordNum.size()>0">
+                (
+                <foreach collection="where.fuzzyRecordNum" separator="or" item="item">
+                    `Record_num` like concat('%',#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.rightFuzzyRecordNum!=null and where.rightFuzzyRecordNum.size()>0">
+                (
+                <foreach collection="where.rightFuzzyRecordNum" separator="or" item="item">
+                    `Record_num` like concat(#{item},'%')
+                </foreach>
+                ) and
+            </if>
+            <if test="where.ynMrNumList != null">
+                `yn_mr_num` in
+                <foreach collection="where.ynMrNumList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.ynMrNumSt !=null">
+                `yn_mr_num` >= #{where.ynMrNumSt} and
+            </if>
+            <if test="where.ynMrNumEd!=null">
+                `yn_mr_num` &lt;= #{where.ynMrNumEd} and
+            </if>
+            <if test="where.ynNdMonthList != null">
+                `yn_nd_month` in
+                <foreach collection="where.ynNdMonthList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.ynNdMonthSt !=null">
+                `yn_nd_month` >= #{where.ynNdMonthSt} and
+            </if>
+            <if test="where.ynNdMonthEd!=null">
+                `yn_nd_month` &lt;= #{where.ynNdMonthEd} and
+            </if>
+            <if test="where.ynWtSupplyList != null">
+                `yn_wt_supply` in
+                <foreach collection="where.ynWtSupplyList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.ynWtSupplySt !=null">
+                `yn_wt_supply` >= #{where.ynWtSupplySt} and
+            </if>
+            <if test="where.ynWtSupplyEd!=null">
+                `yn_wt_supply` &lt;= #{where.ynWtSupplyEd} and
+            </if>
+            <if test="where.ynFtSupplyList != null">
+                `yn_ft_supply` in
+                <foreach collection="where.ynFtSupplyList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+                and
+            </if>
+            <if test="where.ynFtSupplySt !=null">
+                `yn_ft_supply` >= #{where.ynFtSupplySt} and
+            </if>
+            <if test="where.ynFtSupplyEd!=null">
+                `yn_ft_supply` &lt;= #{where.ynFtSupplyEd} and
+            </if>
+        </trim>
+    </update>
+
+
+    <resultMap type="cn.edu.gues.pojo.TbMerge" id="TbMergeMap">
+        <result property="num" column="num"/>
+        <result property="recordNum" column="record_num"/>
+        <result property="ynMrNum" column="yn_mr_num"/>
+        <result property="ynNdMonth" column="yn_nd_month"/>
+        <result property="ynWtSupply" column="yn_wt_supply"/>
+        <result property="ynFtSupply" column="yn_ft_supply"/>
+    </resultMap>
+
+
+    <select id="queryTbMerge" resultMap="TbMergeMap">
+        select
+        <include refid="baseResult"></include>
+        from `tb_merge`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="num != null and num!=''">
+                `num` = #{num} and
+            </if>
+            <if test="recordNum != null and recordNum!=''">
+                `record_num` = #{recordNum} and
+            </if>
+            <if test="ynMrNum != null">
+                `yn_mr_num` = #{ynMrNum} and
+            </if>
+            <if test="ynNdMonth != null">
+                `yn_nd_month` = #{ynNdMonth} and
+            </if>
+            <if test="ynWtSupply != null">
+                `yn_wt_supply` = #{ynWtSupply} and
+            </if>
+            <if test="ynFtSupply != null">
+                `yn_ft_supply` = #{ynFtSupply} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbMerge$QueryBuilder) == true">
+                <if test="numList != null">
+                    `num` in
+                    <foreach collection="numList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNum!=null and fuzzyNum.size()>0">
+                    (
+                    <foreach collection="fuzzyNum" separator="or" item="item">
+                        `Num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNum!=null and rightFuzzyNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNum" separator="or" item="item">
+                        `Num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="recordNumList != null">
+                    `record_num` in
+                    <foreach collection="recordNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyRecordNum!=null and fuzzyRecordNum.size()>0">
+                    (
+                    <foreach collection="fuzzyRecordNum" separator="or" item="item">
+                        `Record_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyRecordNum!=null and rightFuzzyRecordNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyRecordNum" separator="or" item="item">
+                        `Record_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ynMrNumList != null">
+                    `yn_mr_num` in
+                    <foreach collection="ynMrNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynMrNumSt !=null">
+                    `yn_mr_num` >= #{ynMrNumSt} and
+                </if>
+                <if test="ynMrNumEd!=null">
+                    `yn_mr_num` &lt;= #{ynMrNumEd} and
+                </if>
+                <if test="ynNdMonthList != null">
+                    `yn_nd_month` in
+                    <foreach collection="ynNdMonthList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynNdMonthSt !=null">
+                    `yn_nd_month` >= #{ynNdMonthSt} and
+                </if>
+                <if test="ynNdMonthEd!=null">
+                    `yn_nd_month` &lt;= #{ynNdMonthEd} and
+                </if>
+                <if test="ynWtSupplyList != null">
+                    `yn_wt_supply` in
+                    <foreach collection="ynWtSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynWtSupplySt !=null">
+                    `yn_wt_supply` >= #{ynWtSupplySt} and
+                </if>
+                <if test="ynWtSupplyEd!=null">
+                    `yn_wt_supply` &lt;= #{ynWtSupplyEd} and
+                </if>
+                <if test="ynFtSupplyList != null">
+                    `yn_ft_supply` in
+                    <foreach collection="ynFtSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynFtSupplySt !=null">
+                    `yn_ft_supply` >= #{ynFtSupplySt} and
+                </if>
+                <if test="ynFtSupplyEd!=null">
+                    `yn_ft_supply` &lt;= #{ynFtSupplyEd} and
+                </if>
+            </if>
+        </trim>
+    </select>
+
+    <select id="queryTbMergeLimit1" resultMap="TbMergeMap">
+        select
+        <include refid="baseResult"></include>
+        from `tb_merge`
+        <trim prefix="where" suffixOverrides="and | or">
+            <if test="num != null and num!=''">
+                `num` = #{num} and
+            </if>
+            <if test="recordNum != null and recordNum!=''">
+                `record_num` = #{recordNum} and
+            </if>
+            <if test="ynMrNum != null">
+                `yn_mr_num` = #{ynMrNum} and
+            </if>
+            <if test="ynNdMonth != null">
+                `yn_nd_month` = #{ynNdMonth} and
+            </if>
+            <if test="ynWtSupply != null">
+                `yn_wt_supply` = #{ynWtSupply} and
+            </if>
+            <if test="ynFtSupply != null">
+                `yn_ft_supply` = #{ynFtSupply} and
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbMerge$QueryBuilder) == true">
+                <if test="numList != null">
+                    `num` in
+                    <foreach collection="numList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyNum!=null and fuzzyNum.size()>0">
+                    (
+                    <foreach collection="fuzzyNum" separator="or" item="item">
+                        `Num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyNum!=null and rightFuzzyNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyNum" separator="or" item="item">
+                        `Num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="recordNumList != null">
+                    `record_num` in
+                    <foreach collection="recordNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="fuzzyRecordNum!=null and fuzzyRecordNum.size()>0">
+                    (
+                    <foreach collection="fuzzyRecordNum" separator="or" item="item">
+                        `Record_num` like concat('%',#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="rightFuzzyRecordNum!=null and rightFuzzyRecordNum.size()>0">
+                    (
+                    <foreach collection="rightFuzzyRecordNum" separator="or" item="item">
+                        `Record_num` like concat(#{item},'%')
+                    </foreach>
+                    ) and
+                </if>
+                <if test="ynMrNumList != null">
+                    `yn_mr_num` in
+                    <foreach collection="ynMrNumList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynMrNumSt !=null">
+                    `yn_mr_num` >= #{ynMrNumSt} and
+                </if>
+                <if test="ynMrNumEd!=null">
+                    `yn_mr_num` &lt;= #{ynMrNumEd} and
+                </if>
+                <if test="ynNdMonthList != null">
+                    `yn_nd_month` in
+                    <foreach collection="ynNdMonthList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynNdMonthSt !=null">
+                    `yn_nd_month` >= #{ynNdMonthSt} and
+                </if>
+                <if test="ynNdMonthEd!=null">
+                    `yn_nd_month` &lt;= #{ynNdMonthEd} and
+                </if>
+                <if test="ynWtSupplyList != null">
+                    `yn_wt_supply` in
+                    <foreach collection="ynWtSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynWtSupplySt !=null">
+                    `yn_wt_supply` >= #{ynWtSupplySt} and
+                </if>
+                <if test="ynWtSupplyEd!=null">
+                    `yn_wt_supply` &lt;= #{ynWtSupplyEd} and
+                </if>
+                <if test="ynFtSupplyList != null">
+                    `yn_ft_supply` in
+                    <foreach collection="ynFtSupplyList" close=")" open="(" separator="," item="item">
+                        #{item}
+                    </foreach>
+                    and
+                </if>
+                <if test="ynFtSupplySt !=null">
+                    `yn_ft_supply` >= #{ynFtSupplySt} and
+                </if>
+                <if test="ynFtSupplyEd!=null">
+                    `yn_ft_supply` &lt;= #{ynFtSupplyEd} and
+                </if>
+            </if>
+        </trim>
+        limit 1
+    </select>
+
+    <sql id="allResult">
+        <trim suffixOverrides=",">
+            `num`,
+            `record_num`,
+            `yn_mr_num`,
+            `yn_nd_month`,
+            `yn_wt_supply`,
+            `yn_ft_supply`,
+        </trim>
+    </sql>
+
+
+    <sql id="baseResult">
+        <trim suffixOverrides=",">
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbMerge$QueryBuilder) == true">
+
+                <if test="fetchFields==null">
+                    <include refid="allResult"></include>
+                </if>
+                <if test="fetchFields!=null">
+                    <if test="fetchFields.AllFields !=null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields ==null and fetchFields.fetchFields==null and fetchFields.excludeFields==null and fetchFields.otherFields==null">
+                        <include refid="allResult"></include>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.fetchFields!=null">
+                        <if test="fetchFields.fetchFields.num==true">
+                            `num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.recordNum==true">
+                            `record_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ynMrNum==true">
+                            `yn_mr_num`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ynNdMonth==true">
+                            `yn_nd_month`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ynWtSupply==true">
+                            `yn_wt_supply`,
+                        </if>
+                        <if test="fetchFields.fetchFields.ynFtSupply==true">
+                            `yn_ft_supply`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.AllFields==null and fetchFields.excludeFields!=null">
+                        <if test="fetchFields.excludeFields.num==null">
+                            `num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.recordNum==null">
+                            `record_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ynMrNum==null">
+                            `yn_mr_num`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ynNdMonth==null">
+                            `yn_nd_month`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ynWtSupply==null">
+                            `yn_wt_supply`,
+                        </if>
+                        <if test="fetchFields.excludeFields.ynFtSupply==null">
+                            `yn_ft_supply`,
+                        </if>
+                    </if>
+                    <if test="fetchFields.otherFields!=null and fetchFields.otherFields.size>0">
+                        <foreach collection="fetchFields.otherFields" index="index" item="item" separator=",">
+                            `#{item}`
+                        </foreach>
+                    </if>
+                </if>
+            </if>
+            <if test="(_parameter instanceof cn.edu.gues.pojo.TbMerge$QueryBuilder) == false">
+                <include refid="allResult"></include>
+            </if>
+
+        </trim>
+    </sql>
+
+
+</mapper>
